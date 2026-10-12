@@ -1,36 +1,95 @@
+/* eslint-disable @next/next/no-img-element */
 import { Suspense } from "react";
+import PageShell from "@/components/PageShell";
+import ContactoForm from "@/components/ContactoForm";
+import TarjetaContacto from "@/components/TarjetaContacto";
+import Recorte from "@/components/Recorte";
+import { EMAIL, LINKEDIN_URL, WHATSAPP_URL } from "@/lib/site";
 
-const perfiles: Record<string, string> = {
-  intergeneracional: "Intergeneracional",
-  "persona-mayor": "Persona mayor",
-  "organizacion-empresa": "Organización / Empresa",
-};
+export const metadata = { title: "Contacto | Seguimos Contando" };
 
-async function Perfil({
-  searchParams,
-}: {
-  searchParams: Promise<{ soy?: string }>;
-}) {
-  const { soy } = await searchParams;
-  const perfil = (soy && perfiles[soy]) || "";
-
+export default function Contacto() {
   return (
-    <p className="font-expanded text-2xl">
-      Contacto · Soy: {perfil || "(sin seleccionar)"}
-    </p>
-  );
-}
+    <PageShell>
+      <section className="mx-auto w-full max-w-[1312px] px-6 pb-[40px] pt-[140px] lg:pt-[173px]">
+        <h1 className="font-expanded text-center font-bold text-crema">
+          <span className="text-[30px] sm:text-[50px]">Ponete en</span>{" "}
+          <span className="font-hand text-[48px] font-normal sm:text-[80px]">contacto</span>
+          <span className="font-hand text-[70px] font-normal tracking-[-12px]">{" "}</span>
+          <span className="text-[30px] sm:text-[50px]">con nosotros</span>
+        </h1>
 
-export default function Contacto({
-  searchParams,
-}: {
-  searchParams: Promise<{ soy?: string }>;
-}) {
-  return (
-    <main className="flex min-h-screen items-center justify-center bg-black text-white">
-      <Suspense fallback={<p className="font-expanded text-2xl">Cargando…</p>}>
-        <Perfil searchParams={searchParams} />
-      </Suspense>
-    </main>
+        <div className="mt-[64px] flex flex-col items-center gap-[80px] lg:flex-row lg:items-start lg:justify-center">
+          <div className="flex w-full justify-center lg:w-[634px] lg:shrink-0">
+            <Suspense
+              fallback={
+                <div className="h-[700px] w-full max-w-[634px] rounded-[30px] bg-white/10" />
+              }
+            >
+              <ContactoForm />
+            </Suspense>
+          </div>
+
+          <div className="mt-[43px] flex w-full max-w-[598px] flex-col gap-[83px] lg:mt-0 lg:w-[598px] lg:shrink-0">
+            <TarjetaContacto
+              href={WHATSAPP_URL}
+              externo
+              marco="/img/marco-whatsapp.svg"
+              etiqueta="Canal “Las Cartas De Tita”"
+              accion="Ir al canal de Whatsapp →"
+              icono={
+                <img
+                  src="/img/icono-whatsapp.svg"
+                  alt=""
+                  className="absolute left-1/2 top-[-43px] size-[86px] -translate-x-1/2"
+                />
+              }
+            />
+            <TarjetaContacto
+              href={`mailto:${EMAIL}`}
+              marco="/img/marco-email.svg"
+              etiqueta={EMAIL}
+              accion="Ir al email →"
+              icono={
+                <img
+                  src="/img/icono-email.svg"
+                  alt=""
+                  className="absolute left-1/2 top-[-32.5px] h-[65px] w-[86px] -translate-x-1/2"
+                />
+              }
+            />
+            <TarjetaContacto
+              href={LINKEDIN_URL}
+              externo
+              marco="/img/marco-linkedin.svg"
+              etiqueta="LinkedIn “Seguimos Contando”"
+              etiquetaNegrita
+              accion="Seguinos →"
+              icono={
+                <div className="absolute left-1/2 top-[-43px] size-[86px] -translate-x-1/2">
+                  <img
+                    src="/img/icono-linkedin-circulo.svg"
+                    alt=""
+                    className="absolute inset-0 size-full"
+                  />
+                  <img
+                    src="/img/icono-linkedin-in.svg"
+                    alt=""
+                    className="absolute left-[23.51px] top-[19.59px] h-[36.683px] w-[38.989px]"
+                  />
+                </div>
+              }
+            />
+
+            <Recorte
+              src="/img/polaroid.png"
+              alt="Dos personas mirando juntas un celular"
+              className="mt-[-23px] aspect-[598/513] w-full"
+              ajuste={{ alto: 144.51, ancho: 100.93, arriba: -23.75, izquierda: -0.37 }}
+            />
+          </div>
+        </div>
+      </section>
+    </PageShell>
   );
 }

@@ -1,4 +1,5 @@
-import Link from "next/link";
+import PerfilCard from "@/components/PerfilCard";
+import { RUTAS } from "@/lib/site";
 
 const perfiles = [
   { slug: "intergeneracional", label: "INTERGENERACIONAL" },
@@ -19,6 +20,9 @@ export default function Home() {
         playsInline
       />
 
+      {/* Overlay #000000 al 40% (requisito del cliente) */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#000000]/40" />
+
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center gap-12 px-6 py-16">
         <h1 className="font-expanded fade-up text-center text-[38px] font-medium italic text-white">
           Selecciona la opción con la que te identificas
@@ -26,19 +30,13 @@ export default function Home() {
 
         <div className="flex w-full max-w-[1312px] flex-col gap-[18px] md:flex-row">
           {perfiles.map((p, i) => (
-            <Link
+            <PerfilCard
               key={p.slug}
-              href={`/contacto?soy=${p.slug}`}
-              className="fade-up flex flex-1 flex-col items-center justify-center gap-[6px] rounded-[22px] border border-white/50 bg-white/10 px-[26px] py-[71px] backdrop-blur-[2px] transition hover:bg-white/20"
-              style={{ animationDelay: `${0.15 * (i + 1)}s` }}
-            >
-              <span className="font-expanded -rotate-[5deg] text-[33px] text-white">
-                SOY
-              </span>
-              <span className="font-[family-name:var(--font-reenie)] text-[41px] text-center text-white">
-                {p.label}
-              </span>
-            </Link>
+              slug={p.slug}
+              label={p.label}
+              destino={RUTAS.inicio}
+              retraso={0.15 * (i + 1)}
+            />
           ))}
         </div>
       </div>

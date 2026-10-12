@@ -2,9 +2,9 @@
 
 @theme inline {
   --color-crema: #edddc9;
-  --font-archivo: var(--font-archivo);
-  --font-reenie: var(--font-reenie);
-  --font-barlow: var(--font-barlow);
+  --color-azul: #1e3652;
+  --color-azul-footer: #1c5186;
+  --color-rojo: #fe4949;
 }
 
 body {
@@ -19,6 +19,11 @@ body {
   font-stretch: 125%;
 }
 
+/* Reenie Beanie: la manuscrita de los títulos */
+.font-hand {
+  font-family: var(--font-reenie), cursive;
+}
+
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -26,4 +31,63 @@ body {
 .fade-up {
   opacity: 0;
   animation: fade-up 0.8s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Cintas que avanzan solas (números, protagonistas). El track tiene 2 copias: se mueve -50%. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee {
+  animation: marquee var(--dur, 40s) linear infinite;
+}
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Aparecer al hacer scroll (fade + slide-in) */
+.revelar {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.revelar.visto {
+  opacity: 1;
+  transform: none;
+}
+
+/* Flechas que invitan a bajar / hacer click */
+@keyframes rebote {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(10px); }
+}
+.rebote {
+  animation: rebote 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee, .rebote { animation: none; }
+  .revelar { opacity: 1; transform: none; transition: none; }
+}
+
+/* Lista vertical que sube sola (valores institucionales). 2 copias: se mueve -50%. */
+@keyframes marquee-v {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+.marquee-v {
+  animation: marquee-v var(--dur, 30s) linear infinite;
+}
+.marquee-v:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-v { animation: none; }
 }

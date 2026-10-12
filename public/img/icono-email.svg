@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="86" height="65" viewBox="0 0 86 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Gmail" clip-path="url(#clip0_0_15)">
+<path id="Vector" d="M7.16667 2.54054H78.8333C81.7 2.54054 84.2083 5.04887 84.2083 7.91554V58.0822C84.2083 60.9489 81.7 63.4572 78.8333 63.4572H7.16667C4.3 63.4572 1.79167 60.9489 1.79167 58.0822V7.91554C1.79167 5.04887 4.3 2.54054 7.16667 2.54054Z" fill="#EDDDC9" stroke="#EDDDC9" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M77.0417 2.54054L43 27.6239L8.95833 2.54054" stroke="#1E3652" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M12.5417 63.4575V19.3825L43 41.9575L73.4583 19.383V63.4575" stroke="#1E3652" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_0_15">
+<rect width="86" height="65" fill="white"/>
+</clipPath>
+</defs>
+</svg>
