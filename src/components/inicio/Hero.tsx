@@ -36,7 +36,7 @@ export default function Hero() {
 
       <div className="absolute left-1/2 top-[calc(50%-68.5px)] flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-[25px]">
         <Recorte
-          src="/img/inicio/hero-logo.png"
+          src="/img/inicio/hero-logo.webp"
           alt="Asociación Civil Seguimos Contando"
           className="h-[96px] w-[900px]"
           ajuste={{ alto: 314.61, ancho: 100, arriba: -107.31, izquierda: 0 }}

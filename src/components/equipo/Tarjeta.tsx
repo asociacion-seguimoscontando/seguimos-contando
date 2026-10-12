@@ -30,7 +30,7 @@ function Contenido({
           <p className="font-expanded w-full text-[21px] font-semibold leading-[25px] text-white">
             {p.nombre}
           </p>
-          <p className="font-hand w-full text-[29px] leading-normal text-[#fbb22c]">{p.rol}</p>
+          <p className="font-hand w-full text-[29px] leading-none text-[#fbb22c]">{p.rol}</p>
         </div>
         <p
           className={

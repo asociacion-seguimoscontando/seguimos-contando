@@ -1,21 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 
 // Cinta de protagonistas: avanza sola, pausa al pasar el mouse.
-const FOTOS: { src: string; capa?: string }[] = [
-  { src: "prot-1517.png" },
-  { src: "prot-1513.png" },
-  { src: "prot-1514.png" },
-  { src: "prot-1515.png", capa: "prot-1517.png" },
-  { src: "prot-1516.png" },
-  { src: "prot-1518.png" },
-  { src: "prot-1519.png" },
-  { src: "prot-1520.png" },
-  { src: "prot-1521.png" },
+export const FOTOS: { src: string; capa?: string }[] = [
+  { src: "prot-1517.webp" },
+  { src: "prot-1513.webp" },
+  { src: "prot-1514.webp" },
+  { src: "prot-1515.webp", capa: "prot-1517.webp" },
+  { src: "prot-1516.webp" },
+  { src: "prot-1518.webp" },
+  { src: "prot-1519.webp" },
+  { src: "prot-1520.webp" },
+  { src: "prot-1521.webp" },
 ];
 
-function Tarjeta({ src, capa }: { src: string; capa?: string }) {
+export function Tarjeta({ src, capa, className = "h-[520px] w-[416px]" }: { src: string; capa?: string; className?: string }) {
   return (
-    <div className="relative h-[520px] w-[416px] shrink-0 rounded-[24.471px] shadow-[10px_10px_45px_0px_rgba(0,0,0,0.6)] transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.02]">
+    <div className={`relative ${className} shrink-0 rounded-[24.471px] shadow-[10px_10px_45px_0px_rgba(0,0,0,0.6)] transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.02]`}>
       {capa && (
         <img
           src={`/img/inicio/${capa}`}
@@ -35,7 +35,7 @@ function Tarjeta({ src, capa }: { src: string; capa?: string }) {
 export default function Protagonistas() {
   return (
     <div className="absolute left-0 top-[2077px] flex w-[1512px] flex-col items-center gap-[35px]">
-      <h2 className="w-full text-center uppercase text-azul-footer">
+      <h2 className="h-[65px] w-full text-center uppercase leading-[65px] text-azul-footer">
         <span className="font-expanded text-[36px]">Nuestros </span>
         <span className="font-hand text-[65px]">protagonistas</span>
       </h2>

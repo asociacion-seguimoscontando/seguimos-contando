@@ -1,21 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import Revelar from "../Revelar";
 
-const PERFILES = [
+export const PERFILES = [
   {
-    img: "instituciones.png",
+    img: "instituciones.webp",
     titulo: "Instituciones",
     texto:
       "Organizaciones que trabajan en longevidad, derechos, cultura, educación, bienestar, tecnología y participación social.",
   },
   {
-    img: "personas-mayores.png",
+    img: "personas-mayores.webp",
     titulo: "Personas mayores",
     texto:
       "Entre 70 y 100 años, con historias, talentos, oficios, conocimientos, proyectos o ganas de participar.",
   },
   {
-    img: "familias.png",
+    img: "familias.webp",
     titulo: "Familias",
     texto:
       "Hijos, nietos, estudiantes y jóvenes que quieren aprender, vincularse y construir proyectos intergeneracionales.",
@@ -25,7 +25,7 @@ const PERFILES = [
 export default function Acompanamos() {
   return (
     <div className="absolute left-[100px] top-[2398px] flex w-[1312px] flex-col items-center gap-[40px]">
-      <h2 className="w-full text-center uppercase text-azul-footer">
+      <h2 className="h-[65px] w-full text-center uppercase leading-[65px] text-azul-footer">
         <span className="font-expanded text-[40px]">a quiénes </span>
         <span className="font-hand text-[65px]">acompañamos</span>
       </h2>
@@ -45,7 +45,7 @@ export default function Acompanamos() {
                 />
                 <div className="font-expanded relative flex w-full flex-col items-center gap-[10px] text-center text-white">
                   <h3 className="w-full text-[27px] font-semibold leading-[25px]">{p.titulo}</h3>
-                  <p className="w-full text-[18px] leading-[21px] tracking-[-0.36px]">{p.texto}</p>
+                  <p className={`flex h-[84px] w-full text-[18px] leading-[21px] tracking-[-0.36px] ${i === 1 ? "items-start" : "items-center"} justify-center`}><span>{p.texto}</span></p>
                 </div>
               </div>
             </div>

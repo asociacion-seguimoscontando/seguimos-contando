@@ -23,14 +23,14 @@ export default function Dato({
     <Revelar className={`flex ${className}`} retraso={retraso}>
       <div className="relative flex w-full flex-col items-start gap-[15px] overflow-clip rounded-[25px] bg-crema px-[30px] py-[20px] text-azul-footer transition-transform duration-300 hover:-translate-y-1">
         <div className="font-expanded flex flex-col items-start gap-[8px] font-bold">
-          <p className="text-[90.462px] leading-normal">
+          <p className="text-[90.462px] leading-[normal]">
             <Cifra texto={valor} />
           </p>
-          <p className="leading-normal" style={{ fontSize: tamEtiqueta }}>
+          <p className="leading-[normal]" style={{ fontSize: tamEtiqueta }}>
             {etiqueta}
           </p>
         </div>
-        <p className="font-expanded text-[25px] font-light italic leading-normal tracking-[-0.75px]">
+        <p className="font-expanded text-[25px] font-light italic leading-[normal] tracking-[-0.75px]">
           {nota}
         </p>
         {children}

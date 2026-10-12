@@ -31,7 +31,8 @@ export default function ContactoForm() {
 
   // El perfil elegido en la home queda guardado en una cookie ("soy").
   useEffect(() => {
-    setGuardado(leerPerfilGuardado());
+    const t = setTimeout(() => setGuardado(leerPerfilGuardado()));
+    return () => clearTimeout(t);
   }, []);
 
   const conocido: Perfil | null = esPerfil(delParam) ? delParam : guardado;
@@ -62,7 +63,7 @@ function Tarjeta({ perfil, editable, onCambiarPerfil }: TarjetaProps) {
   const [estado, setEstado] = useState<"libre" | "enviando" | "ok" | "error">("libre");
   const [trampa, setTrampa] = useState("");
 
-  const claseInput = `font-expanded w-full rounded-[8px] border border-solid ${tema.borde} bg-[rgba(244,230,208,0.1)] p-[15px] text-[16px] font-medium text-white placeholder:text-[#ddd] focus:outline-none focus:ring-2 focus:ring-crema/60`;
+  const claseInput = `font-expanded w-full rounded-[8px] border border-solid ${tema.borde} bg-[rgba(244,230,208,0.1)] p-[14px] text-[16px] font-medium text-white placeholder:text-[#ddd] focus:outline-none focus:ring-2 focus:ring-crema/60`;
   const claseEtiqueta = `font-expanded text-[17px] font-semibold leading-[22px] ${tema.texto}`;
 
   function cambiar(nombre: string, valor: string) {
@@ -72,10 +73,9 @@ function Tarjeta({ perfil, editable, onCambiarPerfil }: TarjetaProps) {
 
   function alternarChip(nombre: string, opcion: string) {
     setValores((v) => {
+      // Una sola opción: elegir otra reemplaza a la anterior; tocar la misma la desmarca.
       const actuales = Array.isArray(v[nombre]) ? (v[nombre] as string[]) : [];
-      const nuevas = actuales.includes(opcion)
-        ? actuales.filter((x) => x !== opcion)
-        : [...actuales, opcion];
+      const nuevas = actuales.includes(opcion) ? [] : [opcion];
       return { ...v, [nombre]: nuevas };
     });
   }
@@ -119,7 +119,7 @@ function Tarjeta({ perfil, editable, onCambiarPerfil }: TarjetaProps) {
           </div>
           <h2
             id="titulo-formulario"
-            className={`font-expanded text-center text-[26px] font-semibold tracking-[-3px] sm:text-[30px] ${tema.texto}`}
+            className={`font-expanded text-center text-[26px] font-semibold tracking-[-3px] sm:text-[30px] sm:leading-[33px] ${tema.texto}`}
           >
             {estado === "ok" ? "¡Gracias por escribirnos!" : "Contanos cómo querés sumarte"}
           </h2>
@@ -155,7 +155,7 @@ function Tarjeta({ perfil, editable, onCambiarPerfil }: TarjetaProps) {
                     id="campo-soy"
                     value={perfil}
                     onChange={(e) => onCambiarPerfil(e.target.value as Perfil)}
-                    className="font-expanded w-full rounded-[8px] border border-solid border-[#a7a7a7] bg-[#dfdfdf] p-[15px] text-[16px] font-medium text-[#555] focus:outline-none focus:ring-2 focus:ring-crema/60"
+                    className="font-expanded w-full rounded-[8px] border border-solid border-[#a7a7a7] bg-[#dfdfdf] p-[14px] text-[16px] font-medium text-[#555] focus:outline-none focus:ring-2 focus:ring-crema/60"
                   >
                     {PERFILES.map((p) => (
                       <option key={p} value={p}>
@@ -168,7 +168,7 @@ function Tarjeta({ perfil, editable, onCambiarPerfil }: TarjetaProps) {
                     id="campo-soy"
                     readOnly
                     value={formulario.etiquetaSoy}
-                    className="font-expanded w-full rounded-[8px] border border-solid border-[#a7a7a7] bg-[#dfdfdf] p-[15px] text-[16px] font-medium text-[#a0a0a0] focus:outline-none"
+                    className="font-expanded w-full rounded-[8px] border border-solid border-[#a7a7a7] bg-[#dfdfdf] p-[14px] text-[16px] font-medium text-[#a0a0a0] focus:outline-none"
                   />
                 )}
               </div>
@@ -258,16 +258,17 @@ function CampoForm({
     return (
       <fieldset className="flex flex-col gap-[10px]">
         <legend className={`${claseEtiqueta} mb-[10px]`}>{etiqueta}</legend>
-        <div className="flex flex-wrap gap-[10px]">
+        <div role="radiogroup" className="flex flex-wrap gap-[10px]">
           {campo.opciones.map((o) => {
             const activa = elegidas.includes(o);
             return (
               <button
                 key={o}
                 type="button"
-                aria-pressed={activa}
+                role="radio"
+                aria-checked={activa}
                 onClick={() => onChip(campo.nombre, o)}
-                className={`font-expanded rounded-[8px] border border-solid p-[15px] text-[16px] font-medium transition ${
+                className={`font-expanded rounded-[8px] border border-solid p-[14px] text-[16px] font-medium transition ${
                   activa
                     ? "border-crema bg-crema text-azul"
                     : `${temaBorde} bg-[rgba(244,230,208,0.1)] text-[#ddd]`
@@ -294,7 +295,7 @@ function CampoForm({
           placeholder={campo.placeholder}
           onChange={(e) => onTexto(campo.nombre, e.target.value)}
           maxLength={3000}
-          className={`${claseInput} min-h-[148px] resize-y px-[20px]`}
+          className={`${claseInput} min-h-[148px] resize-y px-[19px]`}
         />
       ) : (
         <input

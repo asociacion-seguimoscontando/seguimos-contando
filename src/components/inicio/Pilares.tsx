@@ -27,12 +27,12 @@ function Papel({
     <Revelar retraso={retraso}>
       <div className="group relative h-[559px] w-[419px] transition-transform duration-300 hover:-rotate-1 hover:-translate-y-2">
         <img
-          src="/img/inicio/nota.png"
+          src="/img/inicio/nota.webp"
           alt=""
-          className="absolute inset-0 size-full max-w-none object-bottom shadow-[10px_10px_45px_0px_rgba(0,0,0,0.4)]"
+          className="absolute inset-0 size-full max-w-none object-bottom drop-shadow-[10px_10px_45px_rgba(0,0,0,0.4)]"
         />
         <h3
-          className="font-hand absolute whitespace-nowrap text-[62px] uppercase leading-normal text-azul-footer"
+          className="font-hand absolute whitespace-nowrap text-[62px] uppercase leading-none text-azul-footer"
           style={{ left: tituloIzq, top: tituloTop }}
         >
           {titulo}
@@ -55,10 +55,10 @@ function Papel({
   );
 }
 
-export default function Pilares() {
-  return (
-    <div className="absolute left-[100px] top-[1378px] flex w-[1312px] items-center justify-between">
+export function papeles(): React.ReactNode[] {
+  return [
       <Papel
+        key="Misión"
         titulo="Misión"
         tituloIzq={116.5}
         tituloTop={88}
@@ -72,9 +72,10 @@ export default function Pilares() {
         <span className="font-medium">de las personas mayores mediante proyectos culturales, educativos, comunicacionales y comunitarios que </span>
         <span className="font-bold">recuperen historias</span>
         <span className="font-medium"> de vida, generen encuentros entre generaciones, prevengan la soledad y contribuyan a combatir el edadismo.</span>
-      </Papel>
+      </Papel>,
 
       <Papel
+        key="Visión"
         titulo="Visión"
         tituloIzq={125.44}
         tituloTop={88}
@@ -91,9 +92,10 @@ export default function Pilares() {
         <span className="font-medium">, </span>
         <span className="font-bold">participativas e intergeneracionales</span>
         <span className="font-medium">, donde las personas mayores tengan voz, lugar, comunidad y oportunidades reales de participación.</span>
-      </Papel>
+      </Papel>,
 
       <Papel
+        key="Propósito"
         titulo="Propósito"
         tituloIzq={90}
         tituloTop={97}
@@ -106,7 +108,14 @@ export default function Pilares() {
         <span className="font-bold">la construcción de una sociedad más inclusiva e intergeneracional</span>
         <span className="font-medium">, donde las personas mayores sean reconocidas como protagonistas, portadoras de memoria, experiencia y saberes fundamentales para </span>
         <span className="font-bold">fortalecer los vínculos comunitarios y el bienestar colectivo</span>
-      </Papel>
+      </Papel>,
+  ];
+}
+
+export default function Pilares() {
+  return (
+    <div className="absolute left-[100px] top-[1378px] flex w-[1312px] items-center justify-between">
+      {papeles()}
     </div>
   );
 }

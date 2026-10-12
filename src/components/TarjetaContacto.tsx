@@ -32,13 +32,13 @@ export default function TarjetaContacto({
       {icono}
       <div className="absolute inset-x-0 top-[71px] flex flex-col items-center gap-[9px] px-4 text-center text-crema">
         <p
-          className={`font-expanded text-[16px] ${
+          className={`font-expanded max-w-full px-2 [overflow-wrap:anywhere] text-[16px] max-sm:text-[12.5px] ${
             etiquetaNegrita ? "font-semibold" : "font-medium"
           }`}
         >
           {etiqueta}
         </p>
-        <p className="font-expanded text-[22px] font-medium italic">{accion}</p>
+        <p className="font-expanded text-[22px] font-medium italic max-sm:text-[19px]">{accion}</p>
       </div>
     </a>
   );

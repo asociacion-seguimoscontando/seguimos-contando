@@ -40,7 +40,7 @@ export default function Copiar({ texto, etiqueta }: { texto: string; etiqueta: s
       type="button"
       onClick={copiar}
       aria-label={`Copiar ${etiqueta}`}
-      className="font-expanded flex w-[128px] shrink-0 items-center justify-center rounded-[100px] bg-azul-footer px-[24px] py-[15px] text-[16px] font-semibold tracking-[-0.16px] text-white drop-shadow-[4px_4px_15px_rgba(0,0,0,0.05)] transition-transform duration-200 hover:scale-105 active:scale-95"
+      className="font-expanded flex min-w-[128px] shrink-0 items-center justify-center whitespace-nowrap rounded-[100px] bg-azul-footer px-[24px] py-[15px] text-[16px] font-semibold tracking-[-0.16px] text-white drop-shadow-[4px_4px_15px_rgba(0,0,0,0.05)] transition-transform duration-200 hover:scale-105 active:scale-95"
     >
       <span aria-live="polite">{copiado ? "COPIADO ✓" : "COPIAR"}</span>
     </button>

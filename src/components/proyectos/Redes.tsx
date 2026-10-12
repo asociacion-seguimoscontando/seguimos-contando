@@ -33,14 +33,14 @@ export default function Redes() {
   return (
     <>
       <h2 className="font-expanded absolute left-1/2 top-[1842px] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-center text-[75px] font-medium text-[#e77f22]">
-        <span className="block leading-normal">Podés encontrarnos</span>
-        <span className="font-hand block text-[75px] font-normal leading-normal">En nuestras redes</span>
+        <span className="block leading-[normal]">Podés encontrarnos</span>
+        <span className="font-hand block text-[75px] font-normal leading-none">En nuestras redes</span>
       </h2>
       <div className="absolute left-1/2 top-[1962px] flex w-[1312px] -translate-x-1/2 flex-col gap-[40px]">
         <Revelar>
           <Tarjeta
             href="https://www.instagram.com/noventaycontando/"
-            src="/img/proyectos/instagram.png"
+            src="/img/proyectos/instagram.webp"
             nombre="Instagram"
             className="w-full"
           />
@@ -49,14 +49,14 @@ export default function Redes() {
           <Revelar className="flex min-w-px flex-1 [&>a]:w-full">
             <Tarjeta
               href="https://www.tiktok.com/@noventaycontando"
-              src="/img/proyectos/tiktok.png"
+              src="/img/proyectos/tiktok.webp"
               nombre="TikTok"
             />
           </Revelar>
           <Revelar className="flex min-w-px flex-1 [&>a]:w-full" retraso={0.15}>
             <Tarjeta
               href="https://www.facebook.com/profile.php?id=61574728446390"
-              src="/img/proyectos/facebook.png"
+              src="/img/proyectos/facebook.webp"
               nombre="Facebook"
             />
           </Revelar>

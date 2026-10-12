@@ -25,7 +25,7 @@ function Pestana({
       aria-selected={activa}
       onClick={onClick}
       style={{ width: ancho }}
-      className={`font-expanded h-[70px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap rounded-[11.915px] border border-crema p-[22px] text-left text-[23.83px] font-medium text-crema transition-colors duration-300 ${
+      className={`font-expanded h-[70px] cursor-pointer whitespace-nowrap rounded-[11.915px] border border-crema py-[22px] pl-[21px] pr-[21px] text-left text-[23.83px] font-medium text-crema transition-colors duration-300 ${
         activa ? "bg-crema/5" : "hover:bg-crema/10"
       }`}
     >
@@ -54,9 +54,9 @@ function Dato({
       className={`flex w-full items-center rounded-[25px] border-2 border-[#d9d1c4] bg-[rgba(240,240,240,0.2)] p-[25px] ${espacio}`}
     >
       <div className="font-expanded flex min-w-px flex-[1_0_0] flex-col gap-[10px] text-crema">
-        <p className="text-[18px] leading-normal tracking-[-1.8px]">{etiqueta}</p>
+        <p className="text-[18px] leading-[normal] tracking-[-1.8px]">{etiqueta}</p>
         <p
-          className={`leading-normal ${tamano} ${esCvu ? "tracking-[-2px]" : ""}`}
+          className={`leading-[normal] ${tamano} ${esCvu ? "tracking-[-2px]" : ""}`}
           style={{ wordBreak: "break-all" }}
         >
           {valor}
@@ -88,10 +88,10 @@ function Panel({ modo }: { modo: Modo }) {
             {pesos ? "MERCADO PAGO" : "MONEDA INTERNACIONAL"}
           </div>
           <div className="font-expanded flex w-full flex-col items-center gap-[12px] text-center text-crema">
-            <p className="w-full text-[30px] font-semibold leading-normal tracking-[-3px]">
+            <p className="w-full text-[30px] font-semibold leading-[normal] tracking-[-3px]">
               Doná con QR, alias o CVU
             </p>
-            <p className="w-full text-[22px] leading-normal tracking-[-2.2px]">
+            <p className="w-full text-[22px] leading-[normal] tracking-[-2.2px]">
               Escaneá el código desde la app de Mercado Pago o copiá el alias/CVU para transferir.
             </p>
           </div>
@@ -152,7 +152,9 @@ export default function Colaborar() {
 
   // Permite entrar directo con /colaborar#internacional
   useEffect(() => {
-    if (window.location.hash === "#internacional") setModo("internacional");
+    if (window.location.hash !== "#internacional") return;
+    const t = setTimeout(() => setModo("internacional"));
+    return () => clearTimeout(t);
   }, []);
 
   function elegir(m: Modo) {
@@ -199,12 +201,12 @@ export default function Colaborar() {
       {modo === "internacional" && (
         <>
           <div className="fade-up absolute left-[759px] top-[871px] flex w-[1007px] -translate-x-1/2 flex-col items-center gap-[8px] whitespace-nowrap text-center text-crema">
-            <p className="font-expanded text-[59.015px] font-medium leading-normal [text-shadow:0_0_40px_rgba(0,0,0,0.53)]">
+            <p className="font-expanded text-[59.015px] font-medium leading-[normal] [text-shadow:0_0_40px_rgba(0,0,0,0.53)]">
               Muy pronto vas a poder donar
             </p>
-            <p className="font-hand text-[94px] leading-normal">con monedas internacionales</p>
+            <p className="font-hand text-[94px] leading-none">con monedas internacionales</p>
           </div>
-          <div className="fade-up absolute left-[759px] top-[808px] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-center text-[76px] leading-normal tracking-[-2.28px] text-black [text-shadow:2.739px_2.739px_17.117px_rgba(0,0,0,0.15)]">
+          <div className="fade-up absolute left-[759px] top-[808px] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-center text-[76px] leading-[normal] tracking-[-2.28px] text-black [text-shadow:2.739px_2.739px_17.117px_rgba(0,0,0,0.15)]">
             👀
           </div>
         </>

@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Recorte from "../Recorte";
 import Revelar from "../Revelar";
 import Tarjeta from "./Tarjeta";
@@ -10,17 +9,17 @@ export default function Equipo() {
     <div className="absolute left-0 top-0 h-[1240px] w-[1512px] overflow-clip">
       <Revelar className="absolute left-1/2 top-[183px] flex -translate-x-1/2 flex-col items-center gap-[20px]">
         <div className="flex flex-col items-center gap-[8px]">
-          <h1 className="font-expanded whitespace-nowrap text-center text-[59px] font-medium leading-normal text-crema">
+          <h1 className="font-expanded whitespace-nowrap text-center text-[59px] font-medium leading-[normal] text-crema">
             Nosotros somos el detrás de
           </h1>
           <Recorte
-            src="/img/equipo/logo-titulo.png"
+            src="/img/equipo/logo-titulo.webp"
             alt="Seguimos Contando"
             className="h-[59px] w-[836px] shrink-0"
             ajuste={{ alto: 511.91, ancho: 108.13, arriba: -237.31, izquierda: -4.07 }}
           />
         </div>
-        <p className="font-expanded w-[1020px] text-center text-[26px] leading-normal tracking-[-0.78px] text-crema">
+        <p className="font-expanded w-[1020px] text-center text-[26px] leading-[normal] tracking-[-0.78px] text-crema">
           Somos un equipo interdisciplinario que trabaja con pasión y compromiso para construir una sociedad más inclusiva, accesible e intergeneracional.
         </p>
       </Revelar>

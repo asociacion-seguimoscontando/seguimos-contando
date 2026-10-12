@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <div className="absolute left-0 top-0 h-[740px] w-[1512px] overflow-clip">
       <img
-        src="/img/institucion/hero-fondo.png"
+        src="/img/institucion/hero-fondo.webp"
         alt=""
         className="pointer-events-none absolute inset-0 size-full max-w-none object-cover"
       />

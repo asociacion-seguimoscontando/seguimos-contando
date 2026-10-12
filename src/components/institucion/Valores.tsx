@@ -1,6 +1,6 @@
 import Revelar from "../Revelar";
 
-const VALORES = [
+export const VALORES = [
   "Inclusión",
   "Respeto",
   "Dignidad",
@@ -28,8 +28,8 @@ export default function Valores() {
     <div className="absolute left-0 top-[1196px] flex w-[1512px] items-center gap-[80px] px-[100px] py-[120px]">
       <Revelar className="flex min-w-px flex-1 flex-col gap-[20px] text-azul-footer">
         <div className="flex flex-col gap-[15px] whitespace-nowrap uppercase">
-          <span className="font-hand text-[65px] leading-normal">valores institucionales</span>
-          <div className="font-expanded text-[62px] leading-normal">
+          <span className="font-hand text-[65px] leading-none">valores institucionales</span>
+          <div className="font-expanded text-[62px] leading-[normal]">
             <p className="font-semibold">lo que guía,</p>
             <p>cada decisión</p>
           </div>

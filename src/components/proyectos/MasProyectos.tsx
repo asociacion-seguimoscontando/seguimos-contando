@@ -3,7 +3,7 @@ import Recorte from "../Recorte";
 import Revelar from "../Revelar";
 import { FORM_HISTORIA_URL, LEGISLATURA_URL } from "@/lib/site";
 
-function Etiqueta({
+export function Etiqueta({
   texto,
   className,
   caja,
@@ -60,7 +60,7 @@ export default function MasProyectos() {
   return (
     <>
       <div className="absolute left-[calc(50%+0.5px)] top-[2884px] flex -translate-x-1/2 flex-col items-center gap-[12px]">
-        <p className="font-expanded whitespace-nowrap text-center text-[75px] font-medium leading-normal text-[#e77f22]">
+        <p className="font-expanded whitespace-nowrap text-center text-[75px] font-medium leading-[normal] text-[#e77f22]">
           Más proyectos donde
         </p>
         <Recorte
@@ -73,12 +73,12 @@ export default function MasProyectos() {
 
       <div className="absolute left-[100px] top-[3083px] flex w-[1312px] gap-[40px]">
         <Revelar className="flex min-w-px flex-1 [&>a]:w-full">
-          <Tarjeta href={LEGISLATURA_URL} src="/img/proyectos/legislatura.png" nombre="Mención en la Legislatura porteña (video)">
+          <Tarjeta href={LEGISLATURA_URL} src="/img/proyectos/legislatura.webp" nombre="Mención en la Legislatura porteña (video)">
             <Etiqueta texto="VIDEO" className="left-[-26px] top-[-12px] h-[69.891px] w-[120.839px]" caja="" />
           </Tarjeta>
         </Revelar>
         <Revelar className="flex min-w-px flex-1 [&>a]:w-full" retraso={0.15}>
-          <Tarjeta href={FORM_HISTORIA_URL} src="/img/proyectos/historia.png" nombre="La historia de… (formulario)">
+          <Tarjeta href={FORM_HISTORIA_URL} src="/img/proyectos/historia.webp" nombre="La historia de… (formulario)">
             <Etiqueta texto="FORMULARIO" className="left-[-26px] top-[-22px] h-[93.741px] w-[194.052px]" caja="" />
           </Tarjeta>
         </Revelar>

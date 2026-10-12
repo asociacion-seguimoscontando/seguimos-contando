@@ -27,7 +27,7 @@ export default function PlacaForms() {
         className="relative flex h-[334px] w-full flex-col rounded-[45px] drop-shadow-[10px_10px_22.5px_rgba(0,0,0,0.6)] transition-transform duration-300 hover:scale-[1.015]"
       >
         <Recorte
-          src="/img/inicio/forms-placa.png"
+          src="/img/inicio/forms-placa.webp"
           className="w-full flex-1 rounded-[40px]"
           ajuste={{ alto: 130.39, ancho: 114.18, arriba: -14.11, izquierda: -6.77 }}
         />

@@ -10,11 +10,13 @@ type Props = {
   children: React.ReactNode;
   /** Se dibuja debajo del lienzo; recibe la variable CSS --k (escala). */
   despues?: React.ReactNode;
+  /** false = no recortar lo que sobresale (sombras). */
+  recortar?: boolean;
 };
 
 // Lienzo de diseño: mantiene las medidas exactas de Figma y las escala al ancho
 // de la pantalla, así lo que se ve es proporcionalmente igual al diseño.
-export default function Lienzo({ ancho = 1512, alto, children, despues }: Props) {
+export default function Lienzo({ ancho = 1512, alto, children, despues, recortar = true }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [k, setK] = useState(1);
 
@@ -30,7 +32,7 @@ export default function Lienzo({ ancho = 1512, alto, children, despues }: Props)
 
   return (
     <div ref={ref} className="w-full" style={{ ["--k" as string]: k }}>
-      <div className="relative w-full overflow-hidden" style={{ height: alto * k }}>
+      <div className={`relative w-full ${recortar ? "overflow-hidden" : ""}`} style={{ height: alto * k }}>
         <div
           className="absolute left-0 top-0 origin-top-left"
           style={{ width: ancho, height: alto, transform: `scale(${k})` }}

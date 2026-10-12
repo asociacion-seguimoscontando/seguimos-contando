@@ -4,7 +4,7 @@ import Revelar from "../Revelar";
 
 type Ajuste = { alto: number; ancho: number; arriba: number; izquierda: number };
 
-const PLATAFORMAS: {
+export const PLATAFORMAS: {
   nombre: string;
   href: string;
   foto: string;
@@ -19,7 +19,7 @@ const PLATAFORMAS: {
   {
     nombre: "YouTube",
     href: "https://www.youtube.com/@Noventaycontando",
-    foto: "youtube.png",
+    foto: "youtube.webp",
     barra: "#ff0401",
     logo: "youtube-logo.png",
     ajusteLogo: { alto: 420.07, ancho: 170.09, arriba: -160.03, izquierda: -35.04 },
@@ -31,7 +31,7 @@ const PLATAFORMAS: {
   {
     nombre: "Spotify",
     href: "https://open.spotify.com/show/4BFwLxfkOEAKFFiv4q54Kd",
-    foto: "spotify.png",
+    foto: "spotify.webp",
     barra: "#1ed75f",
     logo: "spotify-logo.png",
     ajusteLogo: { alto: 318.18, ancho: 129.88, arriba: -109.09, izquierda: -14.94 },
@@ -43,7 +43,7 @@ const PLATAFORMAS: {
   {
     nombre: "Apple Podcasts",
     href: "https://podcasts.apple.com/ar/podcast/noventa-y-contando/id1837235879",
-    foto: "apple.png",
+    foto: "apple.webp",
     barra: "#8b32c8",
     logo: "apple-logo.png",
     ajusteLogo: { alto: 536.25, ancho: 165.51, arriba: -216.12, izquierda: -34.03 },

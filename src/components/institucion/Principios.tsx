@@ -1,6 +1,6 @@
 import Revelar from "../Revelar";
 
-const PRINCIPIOS: { titulo: string; texto: string; derecha: number; num: number }[] = [
+export const PRINCIPIOS: { titulo: string; texto: string; derecha: number; num: number }[] = [
   {
     titulo: "Dignidad y derechos",
     texto:
@@ -42,8 +42,8 @@ export default function Principios() {
   return (
     <div className="absolute left-0 top-[1880px] flex w-[1512px] flex-col gap-[35px] px-[100px] pb-[140px] pt-[80px]">
       <div className="flex w-full flex-col gap-[15px] text-center uppercase text-azul-footer">
-        <span className="font-hand text-[65px] leading-normal">Principios institucionales</span>
-        <span className="font-expanded text-[54px] leading-normal">Cinco principios, un mismo rumbo</span>
+        <span className="font-hand text-[65px] leading-none">Principios institucionales</span>
+        <span className="font-expanded text-[54px] leading-[normal]">Cinco principios, un mismo rumbo</span>
       </div>
 
       <div className="flex w-full flex-col gap-[30px]">
@@ -51,7 +51,7 @@ export default function Principios() {
           <Revelar key={p.num}>
             <article className="group relative flex w-full flex-col justify-center overflow-clip rounded-[26.601px] bg-crema px-[40px] py-[60px] text-azul-footer transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0px_14px_30px_rgba(0,0,0,0.18)]">
               <div className="flex w-[972px] flex-col gap-[15px]">
-                <h3 className="font-hand text-[74px] leading-normal">{p.titulo}</h3>
+                <h3 className="font-hand text-[74px] leading-none">{p.titulo}</h3>
                 <p className="font-expanded text-[22px] font-medium leading-[30px]">{p.texto}</p>
               </div>
               {/* Óvalo y número */}
@@ -61,7 +61,7 @@ export default function Principios() {
               />
               <span
                 aria-hidden
-                className="font-expanded absolute top-1/2 -translate-y-1/2 whitespace-nowrap text-[125px] font-extrabold leading-normal tracking-[-6.6502px] transition-transform duration-300 group-hover:scale-110"
+                className="font-expanded absolute top-1/2 -translate-y-1/2 whitespace-nowrap text-[125px] font-extrabold leading-[normal] tracking-[-6.6502px] transition-transform duration-300 group-hover:scale-110"
                 style={{ left: 1312 - p.derecha }}
               >
                 {String(p.num).padStart(2, "0")}

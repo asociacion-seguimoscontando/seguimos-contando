@@ -7,13 +7,15 @@ import Revelar from "@/components/Revelar";
 import Hero from "@/components/institucion/Hero";
 import Valores from "@/components/institucion/Valores";
 import Principios from "@/components/institucion/Principios";
+import InstitucionMovil from "@/components/institucion/InstitucionMovil";
 import { CARPETA_INSTITUCIONAL_URL } from "@/lib/site";
 
 export const metadata = { title: "Institución | Seguimos Contando" };
 
 export default function Institucion() {
   return (
-    <div className="relative overflow-x-clip bg-crema">
+    <>
+    <div className="relative overflow-x-clip bg-crema max-md:hidden">
       <Nav />
       <Lienzo
         alto={4236}
@@ -30,19 +32,19 @@ export default function Institucion() {
 
         <div className="absolute left-0 top-0 h-[4236px] w-[1512px] overflow-clip">
           <Recorte
-            src="/img/inicio/fondo-papel.png"
+            src="/img/inicio/fondo-papel.webp"
             className="pointer-events-none absolute inset-0"
             ajuste={{ alto: 100.01, ancho: 100, arriba: 0, izquierda: 0.03 }}
           />
 
           {/* Foto con papel roto + frase */}
           <Recorte
-            src="/img/institucion/franja.png"
+            src="/img/institucion/franja.webp"
             className="pointer-events-none absolute left-0 top-[466px] h-[751px] w-[1512px]"
             ajuste={{ alto: 554.26, ancho: 100, arriba: -62.38, izquierda: 0 }}
           />
           <Recorte
-            src="/img/institucion/foto-papel.png"
+            src="/img/institucion/foto-papel.webp"
             className="pointer-events-none absolute left-0 top-[518px] h-[748px] w-[1512px]"
             ajuste={{ alto: 556.52, ancho: 100, arriba: -70.52, izquierda: 0 }}
           />
@@ -86,5 +88,12 @@ export default function Institucion() {
         </div>
       </Lienzo>
     </div>
+
+    <div className="relative bg-crema md:hidden">
+      <Nav />
+      <InstitucionMovil />
+      <Footer />
+    </div>
+    </>
   );
 }

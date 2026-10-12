@@ -42,3 +42,4 @@ next-env.d.ts
 
 # originales pesados del Drive (no se suben)
 /_drive-originales/
+.tmpv/

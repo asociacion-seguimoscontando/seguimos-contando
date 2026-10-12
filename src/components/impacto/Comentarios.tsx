@@ -1,7 +1,7 @@
 import Recorte from "../Recorte";
 
 // Mensajes de la comunidad: capturas que pasan solas (pausa al pasar el mouse).
-const CAPTURAS = [
+export const CAPTURAS = [
   { src: "comentario-1.png", ajuste: { alto: 209.5, ancho: 120.91, arriba: -20.41, izquierda: -12.13 } },
   { src: "comentario-2.png", ajuste: { alto: 214.59, ancho: 123.85, arriba: -67.81, izquierda: -13.08 } },
   { src: "comentario-3.png", ajuste: { alto: 209.68, ancho: 121.02, arriba: -45.55, izquierda: -12.77 } },
@@ -12,7 +12,7 @@ const CAPTURAS = [
 export default function Comentarios() {
   return (
     <div className="absolute left-0 top-[3167px] flex w-[1512px] flex-col items-center gap-[40px]">
-      <h2 className="w-full text-center uppercase text-azul-footer">
+      <h2 className="h-[65px] w-full text-center uppercase leading-[65px] text-azul-footer">
         <span className="font-expanded text-[40px]">Mensajes de la </span>
         <span className="font-hand text-[65px]">comunidad</span>
       </h2>

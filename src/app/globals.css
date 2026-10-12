@@ -7,6 +7,11 @@
   --color-rojo: #fe4949;
 }
 
+/* Figma usa interlineado "normal" salvo donde indica un valor */
+html {
+  line-height: normal;
+}
+
 body {
   background: #000;
   color: #fff;
@@ -90,4 +95,12 @@ body {
 }
 @media (prefers-reduced-motion: reduce) {
   .marquee-v { animation: none; }
+}
+
+/* Carruseles móviles: sin barra de scroll visible */
+.sin-barra {
+  scrollbar-width: none;
+}
+.sin-barra::-webkit-scrollbar {
+  display: none;
 }

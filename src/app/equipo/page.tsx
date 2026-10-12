@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Lienzo from "@/components/Lienzo";
 import Equipo from "@/components/equipo/Equipo";
 import MuyPronto from "@/components/equipo/MuyPronto";
+import EquipoMovil from "@/components/equipo/EquipoMovil";
 import { EQUIPO_PUBLICADO } from "@/lib/site";
 
 export const metadata = { title: "Nuestro equipo | Seguimos Contando" };
@@ -14,7 +15,8 @@ export default function PaginaEquipo() {
   const altoFondo = EQUIPO_PUBLICADO ? 1691 : 1448;
 
   return (
-    <div className="relative overflow-x-clip bg-crema">
+    <>
+    <div className="relative overflow-x-clip bg-crema max-md:hidden">
       <Nav />
       <Lienzo
         alto={alto}
@@ -29,7 +31,7 @@ export default function PaginaEquipo() {
       >
         {/* El fondo mide lo que toda la pantalla de Figma (incluye el pie) y se recorta arriba */}
         <img
-          src="/img/equipo/fondo.png"
+          src="/img/equipo/fondo.webp"
           alt=""
           className="pointer-events-none absolute left-0 top-0 w-[1512px] max-w-none object-cover"
           style={{ height: altoFondo }}
@@ -37,5 +39,12 @@ export default function PaginaEquipo() {
         {EQUIPO_PUBLICADO ? <Equipo /> : <MuyPronto />}
       </Lienzo>
     </div>
+
+    <div className="relative bg-azul-footer md:hidden">
+      <Nav />
+      <EquipoMovil />
+      <Footer />
+    </div>
+    </>
   );
 }

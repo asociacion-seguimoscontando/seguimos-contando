@@ -29,13 +29,13 @@ export default function PerfilCard({ slug, label, destino, retraso }: Props) {
           /* el conteo nunca debe frenar la navegación */
         }
       }}
-      className="fade-up flex flex-1 flex-col items-center justify-center gap-[6px] rounded-[22px] border border-white/50 bg-white/10 px-[26px] py-[71px] backdrop-blur-[2px] transition hover:bg-white/20"
+      className="fade-up flex flex-1 flex-col items-center justify-center gap-[6px] rounded-[22px] border border-white/50 bg-white/10 px-[26px] py-[71px] backdrop-blur-[2px] transition hover:bg-white/20 max-md:gap-0 max-md:py-[26px] active:bg-white/20"
       style={{ animationDelay: `${retraso}s` }}
     >
-      <span className="font-expanded -rotate-[5deg] text-[33px] text-white">
+      <span className="font-expanded -rotate-[5deg] text-[33px] text-white max-md:text-[24px]">
         SOY
       </span>
-      <span className="font-hand text-center text-[41px] text-white">
+      <span className="font-hand text-center text-[41px] text-white max-md:leading-none max-md:text-[34px]">
         {label}
       </span>
     </Link>

@@ -12,8 +12,11 @@ type Props = {
 };
 
 export default function Recorte({ src, alt = "", className = "", ajuste }: Props) {
+  // Si quien lo usa ya define la posición (absolute, etc.) no se fuerza "relative":
+  // pisaría a "absolute" y la imagen quedaría corrida.
+  const posicion = /(^|\s)(absolute|fixed|relative|sticky)(\s|$)/.test(className) ? "" : "relative";
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className={`${posicion} overflow-hidden ${className}`}>
       <img
         src={src}
         alt={alt}

@@ -27,7 +27,7 @@ export default function Nav({ tema = "crema" }: { tema?: "crema" | "naranja" }) 
       >
         <Link href={RUTAS.inicio} aria-label="Seguimos Contando, ir al inicio">
           <Recorte
-            src={naranja ? "/img/logo-nav-naranja.png" : "/img/logo-nav.png"}
+            src={naranja ? "/img/logo-nav-naranja.webp" : "/img/logo-nav.webp"}
             alt="Asociación Civil Seguimos Contando"
             className="h-[36px] w-[98px] shrink-0"
             ajuste={

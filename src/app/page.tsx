@@ -23,8 +23,8 @@ export default function Home() {
       {/* Overlay #000000 al 40% (requisito del cliente) */}
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#000000]/40" />
 
-      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center gap-12 px-6 py-16">
-        <h1 className="font-expanded fade-up text-center text-[38px] font-medium italic text-white">
+      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center gap-12 px-6 py-16 max-md:gap-8 max-md:px-5 max-md:py-10">
+        <h1 className="font-expanded fade-up text-center text-[38px] font-medium italic text-white max-md:text-[25px] max-md:leading-[1.2]">
           Selecciona la opción con la que te identificas
         </h1>
 

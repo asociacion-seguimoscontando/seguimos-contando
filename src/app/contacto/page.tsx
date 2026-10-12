@@ -11,15 +11,15 @@ export const metadata = { title: "Contacto | Seguimos Contando" };
 export default function Contacto() {
   return (
     <PageShell>
-      <section className="mx-auto w-full max-w-[1312px] px-6 pb-[40px] pt-[140px] lg:pt-[173px]">
-        <h1 className="font-expanded text-center font-bold text-crema">
-          <span className="text-[30px] sm:text-[50px]">Ponete en</span>{" "}
-          <span className="font-hand text-[48px] font-normal sm:text-[80px]">contacto</span>
-          <span className="font-hand text-[70px] font-normal tracking-[-12px]">{" "}</span>
-          <span className="text-[30px] sm:text-[50px]">con nosotros</span>
+      <section className="mx-auto w-full max-w-[1312px] px-6 pb-0 pt-[140px] lg:pt-[173px]">
+        <h1 className="font-expanded text-center font-bold leading-[1.05] text-crema lg:h-[80px] lg:whitespace-nowrap lg:leading-[80px]">
+          <span className="text-[32px] sm:text-[50px]">Ponete en </span>
+          <span className="font-hand text-[56px] font-normal max-lg:block sm:text-[80px]">contacto</span>
+          <span className="font-hand font-normal max-lg:hidden lg:text-[70px] lg:tracking-[-12px]"> </span>
+          <span className="text-[32px] sm:text-[50px]">con nosotros</span>
         </h1>
 
-        <div className="mt-[64px] flex flex-col items-center gap-[80px] lg:flex-row lg:items-start lg:justify-center">
+        <div className="mt-10 flex flex-col items-center gap-14 lg:mt-[83px] lg:gap-[80px] lg:flex-row lg:items-start lg:justify-center">
           <div className="flex w-full justify-center lg:w-[634px] lg:shrink-0">
             <Suspense
               fallback={
@@ -82,7 +82,7 @@ export default function Contacto() {
             />
 
             <Recorte
-              src="/img/polaroid.png"
+              src="/img/polaroid.webp"
               alt="Dos personas mirando juntas un celular"
               className="mt-[-23px] aspect-[598/513] w-full"
               ajuste={{ alto: 144.51, ancho: 100.93, arriba: -23.75, izquierda: -0.37 }}

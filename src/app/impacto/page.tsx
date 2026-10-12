@@ -5,12 +5,14 @@ import Lienzo from "@/components/Lienzo";
 import Dato from "@/components/impacto/Dato";
 import Acompanamos from "@/components/impacto/Acompanamos";
 import Comentarios from "@/components/impacto/Comentarios";
+import ImpactoMovil from "@/components/impacto/ImpactoMovil";
 
 export const metadata = { title: "Impacto | Seguimos Contando" };
 
 export default function Impacto() {
   return (
-    <div className="relative overflow-x-clip bg-crema">
+    <>
+    <div className="relative overflow-x-clip bg-crema max-md:hidden">
       <Nav />
       <Lienzo
         alto={4038}
@@ -26,7 +28,7 @@ export default function Impacto() {
         {/* Encabezado azul */}
         <div className="absolute left-0 top-0 h-[864px] w-[1512px] overflow-clip">
           <img
-            src="/img/institucion/hero-fondo.png"
+            src="/img/institucion/hero-fondo.webp"
             alt=""
             className="pointer-events-none absolute inset-0 size-full max-w-none object-cover"
           />
@@ -41,12 +43,12 @@ export default function Impacto() {
         {/* Papel */}
         <div className="absolute left-0 top-0 h-[4522px] w-[1512px] overflow-clip">
           <img
-            src="/img/impacto/fondo.png"
+            src="/img/impacto/fondo.webp"
             alt=""
             className="pointer-events-none absolute inset-0 size-full max-w-none object-cover"
           />
 
-          <h2 className="absolute left-[756px] top-[948px] w-[1312px] -translate-x-1/2 -translate-y-full text-center uppercase text-azul-footer">
+          <h2 className="absolute left-[756px] top-[883px] h-[65px] w-[1312px] -translate-x-1/2 text-center uppercase leading-[65px] text-azul-footer">
             <span className="font-expanded text-[40px]">Nuestro impacto </span>
             <span className="font-hand text-[65px]">en números</span>
           </h2>
@@ -61,7 +63,7 @@ export default function Impacto() {
                 className="w-[825px] [&>div]:pr-[60px]"
               >
                 <img
-                  src="/img/impacto/youtube.png"
+                  src="/img/impacto/youtube.webp"
                   alt="Canal de YouTube de Noventa y Contando"
                   className="absolute left-[110px] top-[240px] h-[567px] w-[898px] max-w-none rounded-[40px] object-cover shadow-[-10px_-10px_60px_0px_rgba(0,0,0,0.2)]"
                 />
@@ -87,5 +89,12 @@ export default function Impacto() {
         </div>
       </Lienzo>
     </div>
+
+    <div className="relative bg-crema md:hidden">
+      <Nav />
+      <ImpactoMovil />
+      <Footer />
+    </div>
+    </>
   );
 }
