@@ -9,15 +9,21 @@ type Props = {
   /** Cuánto se asoma cada tarjeta por arriba de la siguiente una vez apiladas (px del diseño). */
   asoma: number;
   className?: string;
+  /** Título que queda fijo junto con la primera tarjeta mientras las demás suben. */
+  encabezado?: React.ReactNode;
+  /** Separación entre el encabezado y la primera tarjeta (px del diseño). */
+  huecoEncabezado?: number;
 };
 
-// Tarjetas que se apilan al hacer scroll: la sección queda fija, cada tarjeta nueva sube
-// y se acomoda adelante de la anterior dejando ver "asoma" px. Cuando llega la última,
-// el bloque sigue bajando con el resto de la página. Funciona también dentro de <Lienzo>
+// Tarjetas que se apilan al hacer scroll: la primera queda fija (junto con el encabezado)
+// y cada tarjeta nueva sube desde abajo y se acomoda encima de la anterior, dejando ver
+// "asoma" px del borde de la que tapa. Cuando llega la última, el bloque sigue bajando
+// con el resto de la página. Funciona también dentro de <Lienzo>
 // (la escala se mide sola), porque solo mueve las tarjetas con transform.
-export default function Apilado({ children, espacio, asoma, className = "" }: Props) {
+export default function Apilado({ children, espacio, asoma, className = "", encabezado, huecoEncabezado }: Props) {
   const lista = useRef<HTMLDivElement>(null);
   const items = useRef<(HTMLDivElement | null)[]>([]);
+  const cab = useRef<HTMLDivElement>(null);
   const hijos = Children.toArray(children);
 
   useEffect(() => {
@@ -36,14 +42,20 @@ export default function Apilado({ children, espacio, asoma, className = "" }: Pr
       const L = r.top / k; // borde superior de la lista, en px del diseño
       const vh = window.innerHeight / k;
       const ultima = tarjetas[n - 1];
-      const altoPila = asoma * (n - 1) + ultima.offsetHeight;
-      const T = Math.max(24 / k, (vh - altoPila) / 2); // la pila queda centrada en pantalla
-      const llegada = T + asoma * (n - 1) - ultima.offsetTop; // L en que llega la última
+      const primera = tarjetas[0].offsetTop; // espacio que ocupa el encabezado
+      const altoPila = primera + asoma * (n - 1) + ultima.offsetHeight;
+      const T = Math.max(24 / k, (vh - altoPila) / 2); // el bloque queda centrado en pantalla
+      const llegada = T + primera + asoma * (n - 1) - ultima.offsetTop; // L en que llega la última
       const desfase = Math.min(0, L - llegada);
+      const ancla = (natural: number, fija: number) =>
+        L > llegada ? Math.max(natural, fija + desfase) : fija + desfase;
+      if (cab.current) {
+        const y = ancla(L, T);
+        cab.current.style.transform = `translate3d(0, ${y - L}px, 0)`;
+      }
       tarjetas.forEach((t, i) => {
         const natural = L + t.offsetTop;
-        const fija = T + asoma * i + desfase;
-        const y = L > llegada ? Math.max(natural, fija) : fija;
+        const y = ancla(natural, T + primera + asoma * i);
         t.style.transform = `translate3d(0, ${y - natural}px, 0)`;
       });
     };
@@ -62,6 +74,15 @@ export default function Apilado({ children, espacio, asoma, className = "" }: Pr
 
   return (
     <div ref={lista} className={`relative flex flex-col ${className}`} style={{ gap: espacio }}>
+      {encabezado && (
+        <div
+          ref={cab}
+          className="relative will-change-transform"
+          style={{ zIndex: 0, marginBottom: (huecoEncabezado ?? espacio) - espacio }}
+        >
+          {encabezado}
+        </div>
+      )}
       {hijos.map((h, i) => (
         <div
           key={i}

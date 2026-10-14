@@ -118,8 +118,8 @@ export default function ColaborarMovil() {
       role="tab"
       aria-selected={modo === m}
       onClick={() => elegir(m)}
-      className={`font-expanded h-[54px] w-full rounded-[11px] border border-crema px-4 text-left text-[16px] font-medium text-crema transition-colors ${
-        modo === m ? "bg-crema/15" : "bg-transparent"
+      className={`font-expanded h-[54px] w-full rounded-[11px] border border-crema px-4 text-left text-[16px] font-medium transition-colors ${
+        modo === m ? "bg-crema text-azul" : "bg-transparent text-crema"
       }`}
     >
       {texto}

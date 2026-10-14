@@ -78,11 +78,18 @@ export default function InstitucionMovil() {
         </div>
 
         {/* Principios */}
-        <div className="mt-14 flex flex-col gap-3 px-6 text-center uppercase">
-          <span className="font-hand text-[40px] leading-none">Principios institucionales</span>
-          <span className="font-expanded text-[24px] leading-[1.15]">Cinco principios, un mismo rumbo</span>
-        </div>
-        <Apilado espacio={20} asoma={24} className="mt-8 px-5">
+        <Apilado
+          espacio={20}
+          asoma={24}
+          huecoEncabezado={32}
+          className="mt-14 px-5"
+          encabezado={
+            <div className="flex flex-col gap-3 px-1 text-center uppercase">
+              <span className="font-hand text-[40px] leading-none">Principios institucionales</span>
+              <span className="font-expanded text-[24px] leading-[1.15]">Cinco principios, un mismo rumbo</span>
+            </div>
+          }
+        >
           {PRINCIPIOS.map((p) => (
               <article key={p.num} className="relative overflow-clip rounded-[20px] bg-crema p-6 shadow-[10px_10px_40px_rgba(0,0,0,0.15)]">
                 <div

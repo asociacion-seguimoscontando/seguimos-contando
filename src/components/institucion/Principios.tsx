@@ -40,14 +40,21 @@ export const PRINCIPIOS: { titulo: string; texto: string; derecha: number; num: 
 
 export default function Principios() {
   return (
-    <div className="absolute left-0 top-[1880px] flex w-[1512px] flex-col gap-[35px] px-[100px] pb-[140px] pt-[80px]">
-      <div className="flex w-full flex-col gap-[15px] text-center uppercase text-azul-footer">
-        <span className="font-hand text-[65px] leading-none">Principios institucionales</span>
-        <span className="font-expanded text-[54px] leading-[normal]">Cinco principios, un mismo rumbo</span>
-      </div>
-
-      {/* Al hacer scroll se apilan dejando asomar 40 px de cada una (Frame 21 del Figma). */}
-      <Apilado espacio={30} asoma={40} className="w-full">
+    <div className="absolute left-0 top-[1880px] flex w-[1512px] flex-col px-[100px] pb-[140px] pt-[80px]">
+      {/* Al hacer scroll la 1 queda fija y cada tarjeta sube encima de la anterior,
+          dejando asomar 40 px de su borde (Frame 21 del Figma). */}
+      <Apilado
+        espacio={30}
+        asoma={40}
+        huecoEncabezado={35}
+        className="w-full"
+        encabezado={
+          <div className="flex w-full flex-col gap-[15px] text-center uppercase text-azul-footer">
+            <span className="font-hand text-[65px] leading-none">Principios institucionales</span>
+            <span className="font-expanded text-[54px] leading-[normal]">Cinco principios, un mismo rumbo</span>
+          </div>
+        }
+      >
         {PRINCIPIOS.map((p) => (
             <article key={p.num} className="relative flex w-full flex-col justify-center overflow-clip rounded-[26.601px] bg-crema px-[40px] py-[60px] text-azul-footer shadow-[10px_10px_40px_rgba(0,0,0,0.15)]">
               <div className="flex w-[972px] flex-col gap-[15px]">

@@ -25,8 +25,8 @@ function Pestana({
       aria-selected={activa}
       onClick={onClick}
       style={{ width: ancho }}
-      className={`font-expanded h-[70px] cursor-pointer whitespace-nowrap rounded-[11.915px] border border-crema py-[22px] pl-[21px] pr-[21px] text-left text-[23.83px] font-medium text-crema transition-colors duration-300 ${
-        activa ? "bg-crema/5" : "hover:bg-crema/10"
+      className={`font-expanded h-[70px] cursor-pointer whitespace-nowrap rounded-[11.915px] border border-crema py-[22px] pl-[21px] pr-[21px] text-left text-[23.83px] font-medium transition-colors duration-300 ${
+        activa ? "bg-crema text-azul" : "text-crema hover:bg-crema/10"
       }`}
     >
       {children}
