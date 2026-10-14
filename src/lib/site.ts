@@ -16,7 +16,7 @@ export const WHATSAPP_URL =
 export const LINKEDIN_URL =
   "https://www.linkedin.com/company/seguimoscontandoasociacion/?viewAsMember=true";
 // Nuestro equipo: true = tarjetas del equipo, false = cartel "Muy pronto vas a conocer a todo el equipo".
-export const EQUIPO_PUBLICADO = true;
+export const EQUIPO_PUBLICADO = false;
 // Quiero colaborar: Mercado Pago (datos tomados del Figma; el QR de /img/colaborar apunta al mismo link).
 export const MERCADOPAGO_URL = "https://link.mercadopago.com.ar/seguimoscontando";
 export const MP_ALIAS = "seguimoscontando";
@@ -65,8 +65,12 @@ export const FOOTER_REDES = [
 
 export const FOOTER_DESCRIPCION =
   "Asociación civil que promueve la inclusión y el reconocimiento de las personas mayores.";
-export const FOOTER_COPY =
-  "© 2026 Seguimos Contando Asociación Civil · @soysuarez.dsg";
+export const FOOTER_COPY = "© 2026 Seguimos Contando Asociación Civil · ";
+// Crédito del diseño (después pasa a lafak.studio).
+export const FOOTER_CREDITO = {
+  texto: "creado por @soysuarez.dsg",
+  href: "https://www.instagram.com/soysuarez.dsg/",
+};
 
 // Carpeta institucional (PDF). Cuando esté lista, copiarla en public/docs/ con este nombre.
 export const CARPETA_INSTITUCIONAL_URL = "/docs/carpeta-institucional.pdf";

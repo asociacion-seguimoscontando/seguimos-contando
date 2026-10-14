@@ -19,14 +19,8 @@ export default function Institucion() {
       <Nav />
       <Lienzo
         alto={4236}
-        despues={
-          <div
-            className="relative z-10"
-            style={{ marginTop: "calc(var(--k) * -133px - 100px)" }}
-          >
-            <Footer />
-          </div>
-        }
+        pie={133}
+        fondoPie="url(/img/inicio/fondo-papel.webp) center bottom / 1512px auto no-repeat"
       >
         <Hero />
 
@@ -92,7 +86,7 @@ export default function Institucion() {
     <div className="relative bg-crema md:hidden">
       <Nav />
       <InstitucionMovil />
-      <Footer />
+      <Footer soloMovil />
     </div>
     </>
   );

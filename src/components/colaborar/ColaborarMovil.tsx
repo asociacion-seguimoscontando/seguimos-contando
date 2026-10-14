@@ -129,7 +129,7 @@ export default function ColaborarMovil() {
   return (
     <div
       className="relative overflow-x-clip bg-azul-footer bg-[length:100%_auto] px-4 pb-16 pt-[140px] text-crema"
-      style={{ backgroundImage: "url(/img/movil/azul-textura.webp)" }}
+      style={{ backgroundImage: "url(/img/movil/azul-textura-continua.webp)" }}
     >
       <Revelar className="flex flex-col items-center gap-4 px-2 text-center">
         <h1 className="font-expanded text-[34px] font-semibold leading-[1.1] tracking-[-0.3px]">

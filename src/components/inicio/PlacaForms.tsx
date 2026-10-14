@@ -30,6 +30,7 @@ export default function PlacaForms() {
           src="/img/inicio/forms-placa.webp"
           className="w-full flex-1 rounded-[40px]"
           ajuste={{ alto: 130.39, ancho: 114.18, arriba: -14.11, izquierda: -6.77 }}
+          modo="figma"
         />
         <div className="absolute left-[-54.95px] top-[-28.59px] flex h-[116.781px] w-[217.912px] items-center justify-center">
           <div className="-rotate-[21.38deg]">

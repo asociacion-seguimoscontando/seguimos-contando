@@ -14,6 +14,8 @@ type Props = {
   color?: string;
   puntos?: boolean;
   className?: string;
+  /** Aire arriba y abajo para que las sombras no queden cortadas por el scroll (px). */
+  aire?: number;
 };
 
 // Carrusel táctil: se desliza con el dedo, avanza solo y muestra puntos.
@@ -25,6 +27,7 @@ export default function Carrusel({
   color = "#1c5186",
   puntos = true,
   className = "",
+  aire = 48,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [actual, setActual] = useState(0);
@@ -98,7 +101,13 @@ export default function Carrusel({
         data-i={actual}
         onScroll={alScroll}
         className="sin-barra flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain"
-        style={{ gap: espacio, paddingInline: `calc((100cqw - ${w}) / 2)`, scrollbarWidth: "none" }}
+        style={{
+          gap: espacio,
+          paddingInline: `calc((100cqw - ${w}) / 2)`,
+          paddingBlock: aire,
+          marginBlock: -aire,
+          scrollbarWidth: "none",
+        }}
       >
         {items.map((it, i) => (
           <div key={i} className="shrink-0 snap-center" style={{ width: w }}>

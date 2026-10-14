@@ -9,9 +9,15 @@ type Props = {
   alt?: string;
   className?: string;
   ajuste: Ajuste;
+  /**
+   * "figma" = estira la imagen exactamente al recorte, como hace Figma en modo "Crop"
+   * (necesario cuando la proporción del archivo no coincide con la del recorte).
+   * Por defecto "cubrir" (object-cover), que nunca deforma.
+   */
+  modo?: "cubrir" | "figma";
 };
 
-export default function Recorte({ src, alt = "", className = "", ajuste }: Props) {
+export default function Recorte({ src, alt = "", className = "", ajuste, modo = "cubrir" }: Props) {
   // Si quien lo usa ya define la posición (absolute, etc.) no se fuerza "relative":
   // pisaría a "absolute" y la imagen quedaría corrida.
   const posicion = /(^|\s)(absolute|fixed|relative|sticky)(\s|$)/.test(className) ? "" : "relative";
@@ -20,7 +26,7 @@ export default function Recorte({ src, alt = "", className = "", ajuste }: Props
       <img
         src={src}
         alt={alt}
-        className="absolute max-w-none object-cover"
+        className={`absolute max-w-none ${modo === "figma" ? "object-fill" : "object-cover"}`}
         style={{
           height: `${ajuste.alto}%`,
           width: `${ajuste.ancho}%`,

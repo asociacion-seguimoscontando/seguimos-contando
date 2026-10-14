@@ -38,7 +38,7 @@ export default function Nav({ tema = "crema" }: { tema?: "crema" | "naranja" }) 
           />
         </Link>
 
-        <ul className="hidden items-center gap-[10px] lg:flex">
+        <ul className="hidden items-center gap-[6px] lg:flex">
           {NAV_LINKS.map((l) => {
             const activo = esActivo(l.href);
             return (
@@ -46,11 +46,24 @@ export default function Nav({ tema = "crema" }: { tema?: "crema" | "naranja" }) 
                 <Link
                   href={l.href}
                   aria-current={activo ? "page" : undefined}
-                  className={`font-expanded relative block rounded-[100px] px-[16px] py-[10px] text-[14px] tracking-[-0.28px] ${
+                  className={`group font-expanded relative block rounded-[100px] px-[16px] py-[10px] text-[14px] tracking-[-0.28px] ${
                     naranja ? "text-[#e77f22]" : "text-crema"
-                  } ${activo ? "font-bold" : "font-medium"}`}
+                  }`}
                 >
-                  {l.label}
+                  {/* La copia invisible en negrita reserva el ancho: al pasar el mouse
+                      la letra pasa a bold y crece 2px sin correr a los demás links. */}
+                  <span className="inline-grid">
+                    <span aria-hidden className="invisible col-start-1 row-start-1 font-bold">
+                      {l.label}
+                    </span>
+                    <span
+                      className={`col-start-1 row-start-1 text-center transition-[font-weight,transform] duration-200 ease-out group-hover:scale-[1.1429] group-hover:font-bold ${
+                        activo ? "font-bold" : "font-medium"
+                      }`}
+                    >
+                      {l.label}
+                    </span>
+                  </span>
                   {activo && (
                     <span className={`absolute -bottom-[3px] left-1/2 h-[3px] w-[33px] -translate-x-1/2 rounded-full ${naranja ? "bg-[#e77f22]" : "bg-crema"}`} />
                   )}
@@ -62,7 +75,7 @@ export default function Nav({ tema = "crema" }: { tema?: "crema" | "naranja" }) 
 
         <Link
           href={RUTAS.colaborar}
-          className={`font-expanded hidden rounded-[100px] px-[22px] py-[12px] text-[16px] font-semibold tracking-[-0.16px] lg:block ${
+          className={`font-expanded hidden rounded-[100px] px-[22px] py-[12px] text-[16px] font-semibold tracking-[-0.16px] transition-[margin,padding,box-shadow] duration-200 ease-out hover:-m-[2px] hover:px-[24px] hover:py-[14px] hover:shadow-[0px_6px_20px_rgba(0,0,0,0.25)] lg:block ${
             naranja ? "bg-[#e77f22] text-white" : "bg-crema text-azul"
           }`}
         >
@@ -74,11 +87,29 @@ export default function Nav({ tema = "crema" }: { tema?: "crema" | "naranja" }) 
           onClick={() => setAbierto((v) => !v)}
           aria-expanded={abierto}
           aria-controls="menu-movil"
-          className={`font-expanded rounded-[100px] px-[18px] py-[10px] text-[14px] font-semibold lg:hidden ${
-            naranja ? "bg-[#e77f22] text-white" : "bg-crema text-azul"
+          aria-label={abierto ? "Cerrar menú" : "Abrir menú"}
+          className={`relative -mr-[6px] flex size-[44px] items-center justify-center lg:hidden ${
+            naranja ? "text-[#e77f22]" : "text-crema"
           }`}
         >
-          {abierto ? "Cerrar" : "Menú"}
+          {/* Hamburguesa: 3 líneas que se convierten en una X */}
+          <span aria-hidden className="relative block h-[16px] w-[24px]">
+            <span
+              className={`absolute left-0 block h-[2px] w-full rounded-full bg-current transition-transform duration-300 ${
+                abierto ? "top-[7px] rotate-45" : "top-0"
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[7px] block h-[2px] w-full rounded-full bg-current transition-opacity duration-200 ${
+                abierto ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`absolute left-0 block h-[2px] w-full rounded-full bg-current transition-transform duration-300 ${
+                abierto ? "top-[7px] -rotate-45" : "top-[14px]"
+              }`}
+            />
+          </span>
         </button>
       </nav>
 

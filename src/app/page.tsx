@@ -1,4 +1,5 @@
 import PerfilCard from "@/components/PerfilCard";
+import IntroHome from "@/components/home/IntroHome";
 import { RUTAS } from "@/lib/site";
 
 const perfiles = [
@@ -9,20 +10,8 @@ const perfiles = [
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-neutral-400">
-      {/* Video de fondo con blur */}
-      <video
-        className="absolute inset-0 h-full w-full scale-105 object-cover blur-[10px]"
-        src="/video/inicio.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
-
-      {/* Overlay #000000 al 40% (requisito del cliente) */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#000000]/40" />
-
+    // Intro con video (una vez por visita) y después los botones sobre el video desenfocado.
+    <IntroHome>
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center gap-12 px-6 py-16 max-md:gap-8 max-md:px-5 max-md:py-10">
         <h1 className="font-expanded fade-up text-center text-[38px] font-medium italic text-white max-md:text-[25px] max-md:leading-[1.2]">
           Selecciona la opción con la que te identificas
@@ -40,6 +29,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-    </main>
+    </IntroHome>
   );
 }

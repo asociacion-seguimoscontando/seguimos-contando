@@ -14,14 +14,7 @@ export default function PaginaColaborar() {
       <Nav />
       <Lienzo
         alto={1526}
-        despues={
-          <div
-            className="relative z-10"
-            style={{ marginTop: "calc(var(--k) * -133px - 100px)" }}
-          >
-            <Footer />
-          </div>
-        }
+        pie={133}
       >
         {/* Mismo papel azul que Nuestro equipo (se descarga con scripts\descargar-equipo.ps1) */}
         <img
@@ -36,7 +29,7 @@ export default function PaginaColaborar() {
     <div className="relative bg-azul-footer md:hidden">
       <Nav />
       <ColaborarMovil />
-      <Footer />
+      <Footer soloMovil />
     </div>
     </>
   );

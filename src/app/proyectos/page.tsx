@@ -19,16 +19,9 @@ export default function Proyectos() {
       <Nav tema="naranja" />
       <Lienzo
         alto={3653}
-        despues={
-          <div
-            className="relative z-10"
-            style={{ marginTop: "calc(var(--k) * -100px - 100px)" }}
-          >
-            <Footer />
-          </div>
-        }
+        pie={100}
       >
-        <div className="absolute left-0 top-0 h-[3653px] w-[1512px] overflow-clip">
+        <div className="absolute left-0 top-0 h-[4137px] w-[1512px] overflow-clip">
           <img
             src="/img/proyectos/fondo.webp"
             alt=""
@@ -95,7 +88,7 @@ export default function Proyectos() {
     <div className="relative bg-[#fdd163] md:hidden">
       <Nav tema="naranja" />
       <ProyectosMovil />
-      <Footer />
+      <Footer soloMovil />
     </div>
     </>
   );

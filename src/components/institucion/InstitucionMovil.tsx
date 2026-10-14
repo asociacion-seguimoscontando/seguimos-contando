@@ -3,7 +3,8 @@ import Recorte from "../Recorte";
 import Revelar from "../Revelar";
 import PapelMovil from "../movil/Papel";
 import { PRINCIPIOS } from "./Principios";
-import { VALORES } from "./Valores";
+import { DIFUMINADO, VALORES } from "./Valores";
+import Apilado from "../Apilado";
 import { CARPETA_INSTITUCIONAL_URL } from "@/lib/site";
 
 // Institución para celular (< 1024 px).
@@ -37,8 +38,8 @@ export default function InstitucionMovil() {
             className="pointer-events-none absolute left-0 top-[26px] h-[380px] w-full"
             ajuste={{ alto: 556.52, ancho: 204.8, arriba: -70.52, izquierda: -52.4 }}
           />
-          <Revelar className="absolute inset-x-0 top-[140px] px-6">
-            <blockquote className="font-expanded text-center text-[17px] font-medium italic leading-[1.35] text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]">
+          <Revelar className="absolute inset-x-0 top-[126px] px-6">
+            <blockquote className="font-expanded text-center text-[16px] font-medium italic leading-[1.35] text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]">
               <span className="text-[19px] font-black">“</span>Reconocemos el valor inherente de cada persona mayor como protagonista de su propia historia y portadora de memoria, experiencia y saberes.
               <span className="text-[19px] font-black">”</span>
             </blockquote>
@@ -59,7 +60,11 @@ export default function InstitucionMovil() {
           </p>
         </Revelar>
 
-        <div className="relative mx-6 mt-8 h-[320px] overflow-hidden" aria-label="Valores institucionales">
+        <div
+          className="relative mx-6 mt-8 h-[320px] overflow-hidden"
+          style={{ maskImage: DIFUMINADO, WebkitMaskImage: DIFUMINADO }}
+          aria-label="Valores institucionales"
+        >
           <ul className="marquee-v flex w-full flex-col gap-4 pb-4" style={{ ["--dur" as string]: "28s" }}>
             {valores.map((v, i) => (
               <li key={i}>
@@ -77,10 +82,9 @@ export default function InstitucionMovil() {
           <span className="font-hand text-[40px] leading-none">Principios institucionales</span>
           <span className="font-expanded text-[24px] leading-[1.15]">Cinco principios, un mismo rumbo</span>
         </div>
-        <div className="mt-8 flex flex-col gap-5 px-5">
+        <Apilado espacio={20} asoma={24} className="mt-8 px-5">
           {PRINCIPIOS.map((p) => (
-            <Revelar key={p.num}>
-              <article className="relative overflow-clip rounded-[20px] bg-crema p-6 shadow-[0_8px_22px_rgba(0,0,0,0.1)]">
+              <article key={p.num} className="relative overflow-clip rounded-[20px] bg-crema p-6 shadow-[10px_10px_40px_rgba(0,0,0,0.15)]">
                 <div
                   aria-hidden
                   className="pointer-events-none absolute -right-8 top-5 h-[78px] w-[118px] rounded-[32px] bg-[#e5d4bf] shadow-[inset_0px_0px_14px_0px_rgba(0,0,0,0.15)]"
@@ -94,9 +98,8 @@ export default function InstitucionMovil() {
                 <h3 className="font-hand min-h-[78px] pr-[92px] text-[31px] leading-none">{p.titulo}</h3>
                 <p className="font-expanded mt-3 text-[14.5px] font-medium leading-[1.45]">{p.texto}</p>
               </article>
-            </Revelar>
           ))}
-        </div>
+        </Apilado>
 
         {/* Descarga */}
         <div className="mt-14 flex flex-col items-center gap-5 px-6">

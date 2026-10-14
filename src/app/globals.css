@@ -18,6 +18,35 @@ body {
   font-family: var(--font-barlow), sans-serif;
 }
 
+/* Sin cursor de texto ni "rayita" de escritura al hacer click en textos o imágenes:
+   solo los campos del formulario lo muestran, y todo lo que se puede tocar muestra la manito. */
+body {
+  cursor: default;
+  caret-color: transparent;
+}
+input,
+textarea,
+select,
+[contenteditable="true"] {
+  caret-color: auto;
+}
+input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]),
+textarea {
+  cursor: text;
+}
+a[href],
+button:not(:disabled),
+label[for],
+select,
+summary,
+[role="button"],
+[role="tab"],
+input[type="checkbox"],
+input[type="radio"],
+input[type="submit"] {
+  cursor: pointer;
+}
+
 /* Archivo en su ancho "Expanded" (wdth 125), como en el Figma */
 .font-expanded {
   font-family: var(--font-archivo), sans-serif;
@@ -63,6 +92,12 @@ body {
   transform: translateY(28px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+.revelar-izquierda {
+  transform: translateX(-90px);
+}
+.revelar-derecha {
+  transform: translateX(90px);
+}
 .revelar.visto {
   opacity: 1;
   transform: none;
@@ -103,4 +138,24 @@ body {
 }
 .sin-barra::-webkit-scrollbar {
   display: none;
+}
+
+/* Transición entre páginas: fade suave (la vieja se va mientras entra la nueva). */
+::view-transition-old(.pagina) {
+  animation: 600ms ease-in both pagina-fuera;
+}
+::view-transition-new(.pagina) {
+  animation: 500ms ease-out both pagina-dentro;
+}
+@keyframes pagina-fuera {
+  to { opacity: 0; }
+}
+@keyframes pagina-dentro {
+  from { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(.pagina),
+  ::view-transition-new(.pagina) {
+    animation: none;
+  }
 }

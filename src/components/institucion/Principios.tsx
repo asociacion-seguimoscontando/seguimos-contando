@@ -1,4 +1,4 @@
-import Revelar from "../Revelar";
+import Apilado from "../Apilado";
 
 export const PRINCIPIOS: { titulo: string; texto: string; derecha: number; num: number }[] = [
   {
@@ -46,10 +46,10 @@ export default function Principios() {
         <span className="font-expanded text-[54px] leading-[normal]">Cinco principios, un mismo rumbo</span>
       </div>
 
-      <div className="flex w-full flex-col gap-[30px]">
+      {/* Al hacer scroll se apilan dejando asomar 40 px de cada una (Frame 21 del Figma). */}
+      <Apilado espacio={30} asoma={40} className="w-full">
         {PRINCIPIOS.map((p) => (
-          <Revelar key={p.num}>
-            <article className="group relative flex w-full flex-col justify-center overflow-clip rounded-[26.601px] bg-crema px-[40px] py-[60px] text-azul-footer transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0px_14px_30px_rgba(0,0,0,0.18)]">
+            <article key={p.num} className="relative flex w-full flex-col justify-center overflow-clip rounded-[26.601px] bg-crema px-[40px] py-[60px] text-azul-footer shadow-[10px_10px_40px_rgba(0,0,0,0.15)]">
               <div className="flex w-[972px] flex-col gap-[15px]">
                 <h3 className="font-hand text-[74px] leading-none">{p.titulo}</h3>
                 <p className="font-expanded text-[22px] font-medium leading-[30px]">{p.texto}</p>
@@ -61,15 +61,14 @@ export default function Principios() {
               />
               <span
                 aria-hidden
-                className="font-expanded absolute top-1/2 -translate-y-1/2 whitespace-nowrap text-[125px] font-extrabold leading-[normal] tracking-[-6.6502px] transition-transform duration-300 group-hover:scale-110"
+                className="font-expanded absolute top-1/2 -translate-y-1/2 whitespace-nowrap text-[125px] font-extrabold leading-[normal] tracking-[-6.6502px]"
                 style={{ left: 1312 - p.derecha }}
               >
                 {String(p.num).padStart(2, "0")}
               </span>
             </article>
-          </Revelar>
         ))}
-      </div>
+      </Apilado>
     </div>
   );
 }

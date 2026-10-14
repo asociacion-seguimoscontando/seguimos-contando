@@ -20,14 +20,7 @@ export default function PaginaEquipo() {
       <Nav />
       <Lienzo
         alto={alto}
-        despues={
-          <div
-            className="relative z-10"
-            style={{ marginTop: "calc(var(--k) * -133px - 100px)" }}
-          >
-            <Footer />
-          </div>
-        }
+        pie={133}
       >
         {/* El fondo mide lo que toda la pantalla de Figma (incluye el pie) y se recorta arriba */}
         <img
@@ -43,7 +36,7 @@ export default function PaginaEquipo() {
     <div className="relative bg-azul-footer md:hidden">
       <Nav />
       <EquipoMovil />
-      <Footer />
+      <Footer soloMovil />
     </div>
     </>
   );

@@ -46,7 +46,7 @@ export default function ProyectosMovil() {
   return (
     <div
       className={`relative overflow-x-clip bg-[#fdd163] bg-[length:100%_auto] pb-16 pt-[130px] ${NARANJA}`}
-      style={{ backgroundImage: "url(/img/movil/amarillo-textura.webp)" }}
+      style={{ backgroundImage: "url(/img/movil/amarillo-textura-continua.webp)" }}
     >
       {/* Podcast */}
       <Revelar className="px-6">

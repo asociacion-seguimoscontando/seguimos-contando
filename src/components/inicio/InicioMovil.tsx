@@ -44,8 +44,8 @@ export default function InicioMovil() {
             className="aspect-[900/96] w-full max-w-[335px]"
             ajuste={{ alto: 314.61, ancho: 100, arriba: -107.31, izquierda: 0 }}
           />
-          <div className="relative h-0 w-full max-w-[335px]">
-            <img src="/img/inicio/hero-linea.svg" alt="" className="absolute inset-[-2px_0_0_0] block h-[3px] w-full max-w-none" />
+          <div className="relative h-[3px] w-full max-w-[335px]">
+            <img src="/img/inicio/hero-linea.svg" alt="" className="absolute inset-0 block size-full max-w-none" />
           </div>
           <h1 className="font-expanded text-center text-[19px] font-medium leading-[1.3] text-crema">
             Conectamos generaciones para construir una sociedad para todas las edades.
@@ -63,7 +63,7 @@ export default function InicioMovil() {
       {/* Papel que sube sobre el hero */}
       <div
         className="relative -mt-[62px] bg-[length:100%_auto] pb-16"
-        style={{ backgroundImage: "url(/img/movil/papel-textura.webp)" }}
+        style={{ backgroundImage: "url(/img/movil/papel-textura-continua.webp)" }}
       >
         <img
           src="/img/movil/papel-borde.webp"
@@ -118,7 +118,7 @@ export default function InicioMovil() {
         </Revelar>
 
         {/* Misión / Visión / Propósito */}
-        <Carrusel className="mt-12" ancho="min(88%, 400px)" espacio={14} intervalo={5000}>
+        <Carrusel className="mt-12" ancho="min(88%, 400px)" espacio={14} intervalo={5000} aire={72}>
           {[0, 1, 2].map((i) => (
             <div key={i} className="py-3">
               <Lienzo ancho={419} alto={559} recortar={false}>
@@ -133,7 +133,7 @@ export default function InicioMovil() {
           <span className="font-expanded block text-[22px]">Nuestros</span>
           <span className="font-hand block text-[48px]">protagonistas</span>
         </h2>
-        <div className="-my-8 mt-4 overflow-hidden py-8">
+        <div className="-mb-16 -mt-12 overflow-hidden py-16">
           <div className="marquee flex w-max gap-4 pr-4" style={{ ["--dur" as string]: "50s" }}>
             {fotos.map((f, i) => (
               <Tarjeta key={i} {...f} className="h-[240px] w-[192px]" />

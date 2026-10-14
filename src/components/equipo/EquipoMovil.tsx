@@ -10,8 +10,8 @@ import { EQUIPO_PUBLICADO } from "@/lib/site";
 export default function EquipoMovil() {
   return (
     <div
-      className="relative overflow-x-clip bg-azul-footer bg-[length:100%_auto] pb-16 pt-[140px] text-crema"
-      style={{ backgroundImage: "url(/img/movil/azul-textura.webp)" }}
+      className="relative overflow-x-clip bg-azul-footer bg-[length:100%_auto] pb-20 pt-[120px] text-crema"
+      style={{ backgroundImage: "url(/img/movil/azul-textura-continua.webp)" }}
     >
       {EQUIPO_PUBLICADO ? (
         <>
@@ -39,8 +39,9 @@ export default function EquipoMovil() {
         </>
       ) : (
         <div className="relative">
-          <div aria-hidden className="pointer-events-none overflow-hidden blur-[18px]">
-            <div className="flex w-max gap-6 pl-6" style={{ zoom: 0.55 }}>
+          {/* Tarjetas desenfocadas (más grandes y algo oscurecidas para que el texto se lea bien) */}
+          <div aria-hidden className="pointer-events-none overflow-hidden py-6 [filter:blur(18px)_brightness(0.7)]">
+            <div className="-ml-[90px] flex w-max gap-6" style={{ zoom: 0.78 }}>
               {INTEGRANTES.slice(0, 4).map((p) => (
                 <TarjetaBorrosa key={p.nombre} p={p} />
               ))}
@@ -48,11 +49,11 @@ export default function EquipoMovil() {
           </div>
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center">
             <div className="text-[48px] leading-none">👀</div>
-            <h1 className="font-expanded text-[28px] font-medium leading-[1.1] drop-shadow-[0_0_18px_black]">
+            <h1 className="font-expanded text-[28px] font-medium leading-[1.1] [text-shadow:0_0_24px_rgba(0,0,0,0.85)]">
               Muy pronto vas a conocer
               <span className="font-hand block text-[48px] font-normal leading-none">a todo el equipo</span>
             </h1>
-            <p className="font-expanded text-[15px] leading-[1.4] text-white drop-shadow-[0_0_12px_black]">
+            <p className="font-expanded text-[15px] leading-[1.4] text-white [text-shadow:0_0_14px_rgba(0,0,0,0.9)]">
               Estamos preparando esta sección para presentarte a las personas que hacen posible Seguimos Contando.
             </p>
           </div>

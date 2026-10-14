@@ -16,14 +16,7 @@ export default function Impacto() {
       <Nav />
       <Lienzo
         alto={4038}
-        despues={
-          <div
-            className="relative z-10"
-            style={{ marginTop: "calc(var(--k) * -100px - 100px)" }}
-          >
-            <Footer />
-          </div>
-        }
+        pie={100}
       >
         {/* Encabezado azul */}
         <div className="absolute left-0 top-0 h-[864px] w-[1512px] overflow-clip">
@@ -61,6 +54,7 @@ export default function Impacto() {
                 etiqueta="Suscriptores en Youtube"
                 nota="Podcast y contenidos audiovisuales"
                 className="w-[825px] [&>div]:pr-[60px]"
+                desde="izquierda"
               >
                 <img
                   src="/img/impacto/youtube.webp"
@@ -69,9 +63,9 @@ export default function Impacto() {
                 />
               </Dato>
               <div className="flex w-[447px] flex-col gap-[31px]">
-                <Dato valor="150K" etiqueta="Seguidores en Tiktok" nota="Contenido intergeneracional" className="w-full" retraso={0.1} />
-                <Dato valor="+400K" etiqueta="Seguidores en Instagram" tamEtiqueta={25.7} nota="Comunidad digital" className="w-full" retraso={0.2} />
-                <Dato valor="13,6K" etiqueta="Seguidores en Spotify" nota="Comunidad digital" className="w-full" retraso={0.3} />
+                <Dato valor="150K" etiqueta="Seguidores en Tiktok" nota="Contenido intergeneracional" className="w-full" retraso={0.1} desde="derecha" />
+                <Dato valor="+400K" etiqueta="Seguidores en Instagram" tamEtiqueta={25.7} nota="Comunidad digital" className="w-full" retraso={0.2} desde="derecha" />
+                <Dato valor="13,6K" etiqueta="Seguidores en Spotify" nota="Comunidad digital" className="w-full" retraso={0.3} desde="derecha" />
               </div>
             </div>
 
@@ -93,7 +87,7 @@ export default function Impacto() {
     <div className="relative bg-crema md:hidden">
       <Nav />
       <ImpactoMovil />
-      <Footer />
+      <Footer soloMovil />
     </div>
     </>
   );

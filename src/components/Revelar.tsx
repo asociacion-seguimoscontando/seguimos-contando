@@ -7,10 +7,13 @@ export default function Revelar({
   children,
   className = "",
   retraso = 0,
+  desde = "abajo",
 }: {
   children: React.ReactNode;
   className?: string;
   retraso?: number;
+  /** Desde dónde entra el contenido. */
+  desde?: "abajo" | "izquierda" | "derecha";
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [estado, setEstado] = useState<"ssr" | "oculto" | "visto">("ssr");
@@ -37,8 +40,9 @@ export default function Revelar({
     return () => io.disconnect();
   }, []);
 
+  const dir = desde === "abajo" ? "" : ` revelar-${desde}`;
   const clase =
-    estado === "ssr" ? "" : estado === "oculto" ? "revelar" : "revelar visto";
+    estado === "ssr" ? "" : estado === "oculto" ? `revelar${dir}` : `revelar${dir} visto`;
 
   return (
     <div

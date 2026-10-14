@@ -41,11 +41,11 @@ export default function Hero() {
           className="h-[96px] w-[900px]"
           ajuste={{ alto: 314.61, ancho: 100, arriba: -107.31, izquierda: 0 }}
         />
-        <div className="relative h-0 w-[900px]">
+        <div className="relative h-[3px] w-[900px]">
           <img
             src="/img/inicio/hero-linea.svg"
             alt=""
-            className="absolute inset-[-2px_0_0_0] block size-full max-w-none"
+            className="absolute inset-0 block size-full max-w-none"
           />
         </div>
         <h1 className="font-expanded whitespace-nowrap text-center text-[38px] font-medium text-crema">

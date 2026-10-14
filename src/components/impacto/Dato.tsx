@@ -10,6 +10,7 @@ export default function Dato({
   className = "",
   children,
   retraso = 0,
+  desde,
 }: {
   valor: string;
   etiqueta: string;
@@ -18,9 +19,10 @@ export default function Dato({
   className?: string;
   children?: React.ReactNode;
   retraso?: number;
+  desde?: "abajo" | "izquierda" | "derecha";
 }) {
   return (
-    <Revelar className={`flex ${className}`} retraso={retraso}>
+    <Revelar className={`flex ${className}`} retraso={retraso} desde={desde}>
       <div className="relative flex w-full flex-col items-start gap-[15px] overflow-clip rounded-[25px] bg-crema px-[30px] py-[20px] text-azul-footer transition-transform duration-300 hover:-translate-y-1">
         <div className="font-expanded flex flex-col items-start gap-[8px] font-bold">
           <p className="text-[90.462px] leading-[normal]">

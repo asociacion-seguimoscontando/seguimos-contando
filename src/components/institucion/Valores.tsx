@@ -1,5 +1,9 @@
 import Revelar from "../Revelar";
 
+// Difumina arriba y abajo la lista que sube, así las tarjetas aparecen y se van suavemente.
+export const DIFUMINADO =
+  "linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%)";
+
 export const VALORES = [
   "Inclusión",
   "Respeto",
@@ -41,6 +45,7 @@ export default function Valores() {
 
       <div
         className="relative h-[444px] w-[580px] shrink-0 overflow-hidden"
+        style={{ maskImage: DIFUMINADO, WebkitMaskImage: DIFUMINADO }}
         aria-label="Valores institucionales"
       >
         <ul

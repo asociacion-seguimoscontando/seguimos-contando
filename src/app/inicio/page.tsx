@@ -21,25 +21,19 @@ export default function Inicio() {
 
       <Lienzo
         alto={4011}
-        despues={
-          // El footer se superpone 128 px sobre el final del papel (como en Figma).
-          <div
-            className="relative z-10"
-            style={{ marginTop: "calc(var(--k) * -128px - 100px)" }}
-          >
-            <Footer />
-          </div>
-        }
+        pie={128}
+        fondoPie="url(/img/inicio/fondo-papel.webp) center bottom / 1512px auto no-repeat"
       >
         <Hero />
 
-        {/* INICIO: papel sobre el hero */}
+        {/* INICIO: papel sobre el hero. Va fuera del contenedor de abajo para que las puntas
+            del papel roto se vean enteras sobre el video (antes quedaban cortadas en línea recta). */}
+        <Recorte
+          src="/img/inicio/fondo-papel.webp"
+          className="pointer-events-none absolute left-0 top-[11.2px] h-[4000.2px] w-[1512px]"
+          ajuste={{ alto: 100, ancho: 100, arriba: 0, izquierda: 0 }}
+        />
         <div className="absolute left-0 top-[466px] h-[3545px] w-[1512px] overflow-clip">
-          <Recorte
-            src="/img/inicio/fondo-papel.webp"
-            className="pointer-events-none absolute inset-0"
-            ajuste={{ alto: 112.84, ancho: 100, arriba: -12.83, izquierda: 0 }}
-          />
 
           <Numeros />
 
@@ -89,7 +83,7 @@ export default function Inicio() {
     <div className="relative bg-crema md:hidden">
       <Nav />
       <InicioMovil />
-      <Footer />
+      <Footer soloMovil />
     </div>
     </>
   );

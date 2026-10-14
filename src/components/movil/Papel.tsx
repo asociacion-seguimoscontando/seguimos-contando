@@ -17,7 +17,7 @@ export default function PapelMovil({
     <div
       className={`relative bg-[#f5e6d1] bg-[length:100%_auto] ${className}`}
       style={{
-        backgroundImage: "url(/img/movil/papel-textura.webp)",
+        backgroundImage: "url(/img/movil/papel-textura-continua.webp)",
         marginTop: borde ? -sube : undefined,
       }}
     >

@@ -8,9 +8,9 @@ import { PERFILES } from "./Acompanamos";
 import { CAPTURAS } from "./Comentarios";
 
 const DATOS = [
-  { valor: "150K", etiqueta: "Seguidores en Tiktok", nota: "Contenido intergeneracional" },
-  { valor: "+400K", etiqueta: "Seguidores en Instagram", nota: "Comunidad digital" },
-  { valor: "13,6K", etiqueta: "Seguidores en Spotify", nota: "Comunidad digital" },
+  { valor: "150K", etiqueta: "Seguidores en Tiktok", nota: "Contenido intergeneracional", desde: "derecha" as const },
+  { valor: "+400K", etiqueta: "Seguidores en Instagram", nota: "Comunidad digital", desde: "derecha" as const },
+  { valor: "13,6K", etiqueta: "Seguidores en Spotify", nota: "Comunidad digital", desde: "derecha" as const },
   { valor: "152K", etiqueta: "Reproducciones y descargas en Spotify", nota: "Escucha acumulada" },
   { valor: "10", etiqueta: "Alianzas construidas", nota: "Empresas, Instituciones" },
   { valor: "33", etiqueta: "Episodios publicados", nota: "2 temporadas del podcast" },
@@ -22,15 +22,17 @@ function DatoMovil({
   nota,
   grande = false,
   children,
+  desde,
 }: {
   valor: string;
   etiqueta: string;
   nota: string;
   grande?: boolean;
   children?: React.ReactNode;
+  desde?: "abajo" | "izquierda" | "derecha";
 }) {
   return (
-    <Revelar className="flex h-full">
+    <Revelar className="flex h-full" desde={desde}>
       <div className="relative flex w-full flex-col gap-2 overflow-clip rounded-[20px] bg-crema px-4 py-4 text-azul-footer">
         <p className={`font-expanded font-bold leading-none ${grande ? "text-[56px]" : "text-[40px]"}`}>
           <Cifra texto={valor} />
@@ -73,7 +75,7 @@ export default function ImpactoMovil() {
         <Titulo a="Nuestro impacto" b="en números" />
 
         <div className="mt-6 flex flex-col gap-3 px-4">
-          <DatoMovil grande valor="21,1K" etiqueta="Suscriptores en Youtube" nota="Podcast y contenidos audiovisuales">
+          <DatoMovil grande desde="izquierda" valor="21,1K" etiqueta="Suscriptores en Youtube" nota="Podcast y contenidos audiovisuales">
             <img
               src="/img/impacto/youtube.webp"
               alt="Canal de YouTube de Noventa y Contando"

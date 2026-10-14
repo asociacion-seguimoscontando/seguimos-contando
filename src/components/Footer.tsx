@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Recorte from "./Recorte";
+import Lienzo from "./Lienzo";
 import {
   FOOTER_COMUNIDAD,
   FOOTER_COPY,
+  FOOTER_CREDITO,
   FOOTER_DESCRIPCION,
   FOOTER_NAV,
   FOOTER_REDES,
@@ -38,21 +40,40 @@ function Columna({ titulo, items }: { titulo: string; items: Item[] }) {
   );
 }
 
-function FooterEscritorio() {
+function Credito() {
   return (
-    <footer className="relative mt-[100px] min-h-[584px] w-full">
+    <>
+      {FOOTER_COPY}
+      <a
+        href={FOOTER_CREDITO.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:underline"
+      >
+        {FOOTER_CREDITO.texto}
+      </a>
+    </>
+  );
+}
+
+// Footer de compu con las medidas exactas del Figma (1512 x 584). Va dentro de un
+// <Lienzo>, así se escala igual que el resto de la página y ocupa todo el ancho.
+export function FooterDiseno({ top = 0 }: { top?: number }) {
+  return (
+    <footer className="absolute left-0 z-10 h-[584px] w-[1512px]" style={{ top }}>
       {/* Papel rasgado */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[584px] drop-shadow-[0px_-20px_115px_rgba(0,0,0,0.35)]">
+      <div className="pointer-events-none absolute inset-0 drop-shadow-[0px_-20px_115px_rgba(0,0,0,0.35)]">
         <Recorte
           src="/img/footer-papel.webp"
           className="h-full w-full"
           ajuste={{ alto: 179.96, ancho: 105.6, arriba: -24.31, izquierda: -2.74 }}
+          modo="figma"
         />
       </div>
 
-      <div className="relative mx-auto flex w-full max-w-[1312px] flex-col gap-[40px] px-6 min-[1360px]:px-0 pb-[60px] pt-[150px] lg:pt-[172px]">
-        <div className="grid gap-x-[65px] gap-y-10 sm:grid-cols-2 lg:grid-cols-[1fr_auto_auto_auto]">
-          <div className="flex max-w-[371px] flex-col gap-[16px] sm:col-span-2 lg:col-span-1">
+      <div className="absolute left-[100px] top-[172px] flex w-[1312px] flex-col gap-[40px]">
+        <div className="grid grid-cols-[371px_215px_336px_195px] gap-x-[65px]">
+          <div className="flex flex-col gap-[16px]">
             <Recorte
               src="/img/logo-footer.webp"
               alt="Asociación Civil Seguimos Contando"
@@ -69,7 +90,7 @@ function FooterEscritorio() {
         </div>
 
         <div className="font-expanded border-t-[1.065px] border-azul-footer/25 pt-[26px] text-center text-[18px] font-medium text-azul-footer">
-          {FOOTER_COPY}
+          <Credito />
         </div>
       </div>
     </footer>
@@ -78,13 +99,14 @@ function FooterEscritorio() {
 
 function FooterMovil() {
   return (
-    <footer className="relative w-full text-azul-footer">
+    // Sube el alto del borde roto: así lo que se ve entre los picos es el papel de la página.
+    <footer className="relative z-10 -mt-[8.9vw] w-full text-azul-footer">
       <div className="[filter:drop-shadow(0_-10px_24px_rgba(0,0,0,0.3))]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/img/movil/footer-borde.webp" alt="" className="block h-auto w-full" />
+        <img src="/img/movil/footer-borde-continuo.webp" alt="" className="relative z-[1] block h-auto w-full" />
         <div
-          className="-mt-px bg-[#f6e9d7] bg-[length:100%_auto] px-6 pb-10 pt-4"
-          style={{ backgroundImage: "url(/img/movil/papel-textura.webp)" }}
+          className="-mt-[1.2vw] bg-[#f5e6d1] bg-[length:100%_auto] px-6 pb-10 pt-[calc(1rem+1.2vw)]"
+          style={{ backgroundImage: "url(/img/movil/papel-textura-continua.webp)" }}
         >
           <Recorte
             src="/img/logo-footer.webp"
@@ -105,7 +127,7 @@ function FooterMovil() {
           </div>
 
           <p className="font-expanded mt-9 border-t border-azul-footer/25 pt-5 text-center text-[13px] font-medium leading-[1.4]">
-            {FOOTER_COPY}
+            <Credito />
           </p>
         </div>
       </div>
@@ -136,12 +158,17 @@ function MovilColumna({ titulo, items }: { titulo: string; items: Item[] }) {
   );
 }
 
-export default function Footer() {
+// Footer suelto (páginas que no usan <Lienzo pie>): compu escalada + celular.
+export default function Footer({ soloMovil = false }: { soloMovil?: boolean }) {
   return (
     <>
-      <div className="max-md:hidden">
-        <FooterEscritorio />
-      </div>
+      {!soloMovil && (
+        <div className="relative z-10 mt-[100px] max-md:hidden">
+          <Lienzo alto={584} recortar={false}>
+            <FooterDiseno />
+          </Lienzo>
+        </div>
+      )}
       <div className="md:hidden">
         <FooterMovil />
       </div>
