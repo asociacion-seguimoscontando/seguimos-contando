@@ -33,16 +33,8 @@ export const NAV_LINKS = [
   { href: RUTAS.contacto, label: "Contacto" },
 ];
 
-// Orden de la columna "Navegación" del footer (según el Figma)
-export const FOOTER_NAV = [
-  { href: RUTAS.inicio, label: "Inicio" },
-  { href: RUTAS.institucion, label: "Institución" },
-  { href: RUTAS.impacto, label: "Impacto" },
-  { href: RUTAS.equipo, label: "Nuestro equipo" },
-  { href: RUTAS.proyectos, label: "Nuestros proyectos" },
-  { href: RUTAS.contacto, label: "Contacto" },
-  { href: RUTAS.colaborar, label: "Quiero colaborar" },
-];
+// Columna "Navegación" del footer: mismo orden que el menú de arriba + Quiero colaborar.
+export const FOOTER_NAV = [...NAV_LINKS, { href: RUTAS.colaborar, label: "Quiero colaborar" }];
 
 // Formulario "¿Tenés +90 años?" (Google Form actual; se puede reemplazar por uno propio).
 export const FORM_MAS_90_URL =

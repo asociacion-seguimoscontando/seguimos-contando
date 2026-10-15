@@ -105,7 +105,7 @@ function FooterMovil() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/img/movil/footer-borde-continuo.webp" alt="" className="relative z-[1] block h-auto w-full" />
         <div
-          className="-mt-[1.2vw] bg-[#f5e6d1] bg-[length:100%_auto] px-6 pb-10 pt-[calc(1rem+1.2vw)]"
+          className="-mt-[1.2vw] bg-[#f5e6d1] bg-[length:100%_auto] px-6 pb-10 pt-[calc(1.5rem+1.2vw)]"
           style={{ backgroundImage: "url(/img/movil/papel-textura-continua.webp)" }}
         >
           <Recorte
@@ -118,12 +118,11 @@ function FooterMovil() {
             {FOOTER_DESCRIPCION}
           </p>
 
-          <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8">
+          {/* Una columna debajo de la otra */}
+          <div className="mt-10 flex flex-col gap-9">
             <MovilColumna titulo="Navegación" items={FOOTER_NAV} />
             <MovilColumna titulo="Nuestras redes" items={FOOTER_REDES} />
-            <div className="col-span-2">
-              <MovilColumna titulo="Comunidad" items={FOOTER_COMUNIDAD} />
-            </div>
+            <MovilColumna titulo="Comunidad" items={FOOTER_COMUNIDAD} />
           </div>
 
           <p className="font-expanded mt-9 border-t border-azul-footer/25 pt-5 text-center text-[13px] font-medium leading-[1.4]">

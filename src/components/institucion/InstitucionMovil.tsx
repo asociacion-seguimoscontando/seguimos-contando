@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import Recorte from "../Recorte";
 import Revelar from "../Revelar";
 import PapelMovil from "../movil/Papel";
 import { PRINCIPIOS } from "./Principios";
@@ -13,41 +12,57 @@ export default function InstitucionMovil() {
   return (
     <div className="relative overflow-x-clip bg-crema text-azul-footer">
       {/* Hero */}
-      <section className="relative h-[600px] w-full overflow-clip bg-azul">
+      <section className="relative flex w-full flex-col overflow-clip bg-azul pb-[85px] pt-[130px]">
         <img src="/img/institucion/hero-fondo.webp" alt="" className="absolute inset-0 size-full max-w-none object-cover" />
-        <div className="absolute inset-x-0 top-[190px] flex flex-col items-center px-6 text-center text-crema">
+        <div className="relative flex flex-col items-center px-6 text-center text-crema">
           <h1 className="font-expanded text-[29px] font-semibold leading-[1.22] tracking-[-0.3px]">
             Una <span className="font-hand text-[40px] font-normal leading-none">asociación civil</span> por la dignidad y la memoria viva.
           </h1>
           <p className="font-expanded mt-5 text-[15px] leading-[1.4]">
             Promovemos la inclusión, la participación y el reconocimiento de las personas mayores a través de proyectos culturales, educativos y comunitarios.
           </p>
+          {/* Flecha para bajar (igual que en Inicio), 60px debajo del texto */}
+          <a href="#frase" aria-label="Bajar a la frase" className="relative mt-[60px] block h-[56px] w-[28px]">
+            <img src="/img/inicio/hero-flecha.svg" alt="" className="rebote absolute inset-0 block size-full max-w-none" />
+          </a>
         </div>
       </section>
 
-      <PapelMovil className="pb-16" sube={50}>
-        {/* Foto con papel roto + frase */}
-        <div className="relative mx-auto h-[410px] w-full pt-6">
-          <Recorte
-            src="/img/institucion/franja.webp"
-            className="pointer-events-none absolute left-0 top-0 h-[381px] w-full"
-            ajuste={{ alto: 554.26, ancho: 204.8, arriba: -62.38, izquierda: -52.4 }}
-          />
-          <Recorte
-            src="/img/institucion/foto-papel.webp"
-            className="pointer-events-none absolute left-0 top-[26px] h-[380px] w-full"
-            ajuste={{ alto: 556.52, ancho: 204.8, arriba: -70.52, izquierda: -52.4 }}
-          />
-          <Revelar className="absolute inset-x-0 top-[126px] px-6">
-            <blockquote className="font-expanded text-center text-[16px] font-medium italic leading-[1.35] text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]">
-              <span className="text-[19px] font-black">“</span>Reconocemos el valor inherente de cada persona mayor como protagonista de su propia historia y portadora de memoria, experiencia y saberes.
-              <span className="text-[19px] font-black">”</span>
-            </blockquote>
-          </Revelar>
-        </div>
+      {/* Foto con papel roto + frase */}
+      {/* Igual que en compu: el papel roto de la foto se apoya directo sobre el azul del hero
+          (sin el borde crema del bloque de abajo). Las imágenes tienen ancho fijo (centradas):
+          así la franja queda siempre a la misma altura y la frase siempre cae adentro. */}
+      <div id="frase" className="relative z-10 -mt-[115px] h-[440px] w-full scroll-mt-[40px] [clip-path:inset(-300px_0_0_0)]">
+        {/* Relleno de papel con la forma del borde roto: tapa las rendijas entre el borde y la foto
+            (si no, se ve el azul del hero por detrás). */}
+        <img
+          src="/img/institucion/franja-relleno-movil.webp"
+          alt=""
+          className="pointer-events-none absolute left-1/2 top-[-433px] w-[1100px] max-w-none -translate-x-1/2"
+        />
+        <img
+          src="/img/institucion/franja.webp"
+          alt=""
+          className="pointer-events-none absolute left-1/2 top-[-433px] w-[1100px] max-w-none -translate-x-1/2"
+        />
+        <img
+          src="/img/institucion/foto-papel.webp"
+          alt=""
+          className="pointer-events-none absolute left-1/2 top-[-437px] w-[1100px] max-w-none -translate-x-1/2"
+        />
+        <Revelar className="absolute inset-x-0 top-[210px] -translate-y-1/2 px-6">
+          <blockquote className="font-expanded text-center text-[min(16px,4.2vw)] font-medium italic leading-[1.35] text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]">
+            <span className="text-[19px] font-black">“</span>Reconocemos el valor inherente de cada persona mayor como protagonista de su propia historia y portadora de memoria, experiencia y saberes.
+            <span className="text-[19px] font-black">”</span>
+          </blockquote>
+        </Revelar>
+      </div>
 
+
+      {/* El papel pasa por debajo de la foto: así lo que asoma bajo el borde roto tiene la misma textura */}
+      <PapelMovil className="-mt-[160px] pb-[calc(100px+8.9vw)] pt-[80px]" borde={false}>
         {/* Valores institucionales */}
-        <Revelar className="mt-6 flex flex-col gap-4 px-6">
+        <Revelar className="mt-[60px] flex flex-col gap-[20px] px-6 text-center">
           <div className="flex flex-col gap-2 uppercase">
             <span className="font-hand text-[40px] leading-none">valores institucionales</span>
             <div className="font-expanded text-[30px] leading-[1.1]">
@@ -61,7 +76,7 @@ export default function InstitucionMovil() {
         </Revelar>
 
         <div
-          className="relative mx-6 mt-8 h-[320px] overflow-hidden"
+          className="relative mx-6 mt-[20px] h-[320px] overflow-hidden"
           style={{ maskImage: DIFUMINADO, WebkitMaskImage: DIFUMINADO }}
           aria-label="Valores institucionales"
         >
@@ -81,8 +96,8 @@ export default function InstitucionMovil() {
         <Apilado
           espacio={20}
           asoma={24}
-          huecoEncabezado={32}
-          className="mt-14 px-5"
+          huecoEncabezado={20}
+          className="mt-[60px] px-5"
           encabezado={
             <div className="flex flex-col gap-3 px-1 text-center uppercase">
               <span className="font-hand text-[40px] leading-none">Principios institucionales</span>
@@ -109,7 +124,7 @@ export default function InstitucionMovil() {
         </Apilado>
 
         {/* Descarga */}
-        <div className="mt-14 flex flex-col items-center gap-5 px-6">
+        <div className="mt-[60px] flex flex-col items-center gap-[20px] px-6">
           <div className="flex items-start gap-6">
             {[0, 1, 2].map((i) => (
               <div key={i} className="relative h-[40px] w-[14px]">

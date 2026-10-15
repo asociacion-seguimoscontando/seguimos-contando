@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Revelar from "../Revelar";
+import Aparecer from "../Aparecer";
 
 export const PERFILES = [
   {
@@ -31,7 +31,7 @@ export default function Acompanamos() {
       </h2>
       <div className="flex w-full items-center gap-[40px]">
         {PERFILES.map((p, i) => (
-          <Revelar key={p.titulo} retraso={i * 0.15}>
+          <Aparecer key={p.titulo} retraso={i * 0.15}>
             <div className="group flex h-[524px] w-[410.667px] items-center rounded-[30px] drop-shadow-[10px_10px_32.5px_rgba(0,0,0,0.2)] transition-transform duration-300 hover:-translate-y-2">
               <div className="relative flex h-full min-w-px flex-1 flex-col items-center justify-end overflow-clip rounded-[25px] p-[20px] shadow-[4px_4px_25px_0px_rgba(0,0,0,0.1)]">
                 <img
@@ -49,7 +49,7 @@ export default function Acompanamos() {
                 </div>
               </div>
             </div>
-          </Revelar>
+          </Aparecer>
         ))}
       </div>
     </div>

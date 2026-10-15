@@ -17,7 +17,7 @@ export default function Home() {
           Selecciona la opción con la que te identificas
         </h1>
 
-        <div className="flex w-full max-w-[1312px] flex-col gap-[18px] md:flex-row">
+        <div className="flex w-full max-w-[1400px] flex-col gap-[18px] max-lg:max-w-[560px] lg:flex-row">
           {perfiles.map((p, i) => (
             <PerfilCard
               key={p.slug}

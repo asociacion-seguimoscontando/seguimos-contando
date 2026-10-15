@@ -42,6 +42,7 @@ export default function Institucion() {
             className="pointer-events-none absolute left-0 top-[518px] h-[748px] w-[1512px]"
             ajuste={{ alto: 556.52, ancho: 100, arriba: -70.52, izquierda: 0 }}
           />
+          <div id="frase" className="absolute left-0 top-[600px] h-px w-px scroll-mt-[60px]" />
           <Revelar className="absolute left-[756px] top-[807px] w-[1302px] -translate-x-1/2">
             <blockquote className="font-expanded text-center italic text-white">
               <p className="text-[38px]">
@@ -80,6 +81,15 @@ export default function Institucion() {
             </a>
           </div>
         </div>
+
+        {/* Flecha que invita a bajar (misma que en Inicio) */}
+        <a
+          href="#frase"
+          aria-label="Bajar a la frase"
+          className="absolute left-[733px] top-[492px] z-10 block h-[89px] w-[45px]"
+        >
+          <img src="/img/inicio/hero-flecha.svg" alt="" className="rebote absolute inset-0 block size-full max-w-none" />
+        </a>
       </Lienzo>
     </div>
 

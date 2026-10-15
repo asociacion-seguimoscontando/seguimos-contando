@@ -19,7 +19,7 @@ export default function Comentarios() {
       <div className="-my-[60px] w-full overflow-hidden py-[60px]">
         <div
           className="marquee flex w-max gap-[48.941px] pr-[48.941px]"
-          style={{ ["--dur" as string]: "50s" }}
+          style={{ ["--dur" as string]: "38s" }}
         >
           {[...CAPTURAS, ...CAPTURAS].map((c, i) => (
             <div

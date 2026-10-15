@@ -16,7 +16,8 @@ export default function Nav({ tema = "crema" }: { tema?: "crema" | "naranja" }) 
     pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="absolute inset-x-0 top-[25px] z-30 px-4">
+    // En compu queda fijo arriba al hacer scroll; en celular se va con la página.
+    <header className="absolute inset-x-0 top-[25px] z-40 px-4 md:fixed">
       <nav
         aria-label="Principal"
         className={`mx-auto flex w-full max-w-[1312px] items-center justify-between rounded-[100px] border-[0.5px] py-[12.5px] pl-[44.5px] pr-[18.5px] ${

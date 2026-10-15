@@ -106,7 +106,17 @@ export default function IntroHome({ children }: { children: React.ReactNode }) {
       {botones && children}
 
       {enIntro && (
-        <div className="fade-up absolute inset-x-0 bottom-[40px] z-10 flex justify-center max-md:bottom-[28px]">
+        <button
+          type="button"
+          onClick={pasarABotones}
+          className="font-expanded fade-up absolute bottom-[48px] right-[48px] z-20 rounded-full border border-white/60 bg-black/25 px-[22px] py-[10px] text-[16px] font-medium text-white backdrop-blur-[6px] transition-[background-color,transform] duration-200 hover:scale-[1.04] hover:bg-black/40 max-md:bottom-[34px] max-md:right-[20px] max-md:px-[18px] max-md:py-[9px] max-md:text-[15px]"
+        >
+          Omitir
+        </button>
+      )}
+
+      {enIntro && (
+        <div className="fade-up pointer-events-none absolute inset-x-0 bottom-[40px] z-10 flex justify-center max-md:bottom-[28px] [&>button]:pointer-events-auto">
           <button
             type="button"
             onClick={alternarSonido}

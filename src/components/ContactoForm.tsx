@@ -258,26 +258,35 @@ function CampoForm({
     return (
       <fieldset className="flex flex-col gap-[10px]">
         <legend className={`${claseEtiqueta} mb-[10px]`}>{etiqueta}</legend>
-        <div role="radiogroup" className="flex flex-wrap gap-[10px]">
-          {campo.opciones.map((o) => {
-            const activa = elegidas.includes(o);
-            return (
-              <button
-                key={o}
-                type="button"
-                role="radio"
-                aria-checked={activa}
-                onClick={() => onChip(campo.nombre, o)}
-                className={`font-expanded rounded-[8px] border border-solid p-[14px] text-[16px] font-medium transition ${
-                  activa
-                    ? "border-crema bg-crema text-azul"
-                    : `${temaBorde} bg-[rgba(244,230,208,0.1)] text-[#ddd]`
-                }`}
-              >
-                {o}
-              </button>
-            );
-          })}
+        {/* En celular: de a 2 por fila, cada una de su ancho (llenan la fila entre las dos).
+            En compu: todas seguidas, como en el Figma. */}
+        <div role="radiogroup" className="flex flex-col gap-[10px] md:flex-row md:flex-wrap">
+          {Array.from({ length: Math.ceil(campo.opciones.length / 2) }, (_, f) =>
+            campo.opciones.slice(f * 2, f * 2 + 2),
+          ).map((fila) => (
+            <div key={fila[0]} className="flex gap-[10px] md:contents">
+              {fila.map((o) => {
+                const activa = elegidas.includes(o);
+                return (
+                  <button
+                    key={o}
+                    type="button"
+                    role="radio"
+                    aria-checked={activa}
+                    onClick={() => onChip(campo.nombre, o)}
+                    className={`font-expanded min-w-min flex-auto rounded-[8px] border border-solid p-[14px] text-[16px] font-medium transition max-md:px-[12px] max-md:text-[15px] max-md:leading-tight md:flex-none ${
+                      activa
+                        ? "border-crema bg-crema text-azul"
+                        : `${temaBorde} bg-[rgba(244,230,208,0.1)] text-[#ddd]`
+                    }`}
+                  >
+                    {/* Guion opcional: si no entra, se corta como "profesional-mente" (lo que se guarda no cambia) */}
+                    {o.replace("profesionalmente", "profesional\u00ADmente")}
+                  </button>
+                );
+              })}
+            </div>
+          ))}
         </div>
       </fieldset>
     );

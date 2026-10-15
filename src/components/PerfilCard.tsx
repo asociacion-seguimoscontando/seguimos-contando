@@ -29,13 +29,15 @@ export default function PerfilCard({ slug, label, destino, retraso }: Props) {
           /* el conteo nunca debe frenar la navegación */
         }
       }}
-      className="fade-up flex flex-1 flex-col items-center justify-center gap-[6px] rounded-[22px] border border-white/50 bg-white/10 px-[26px] py-[71px] backdrop-blur-[2px] transition hover:bg-white/20 max-md:gap-0 max-md:py-[26px] active:bg-white/20"
+      className="fade-up flex min-w-0 flex-1 flex-col items-center justify-center gap-[6px] rounded-[22px] border border-white/50 bg-white/10 px-[25px] py-[70px] backdrop-blur-[2px] transition hover:bg-white/20 active:bg-white/20 max-lg:gap-0 max-lg:py-[26px]"
       style={{ animationDelay: `${retraso}s` }}
     >
-      <span className="font-expanded -rotate-[5deg] text-[33px] text-white max-md:text-[24px]">
+      <span className="font-expanded -rotate-[5deg] text-[33px] text-white max-lg:text-[24px]">
         SOY
       </span>
-      <span className="font-hand text-center text-[41px] text-white max-md:leading-none max-md:text-[34px]">
+      {/* 41px en compu; en pantallas más angostas se achica para que "ORGANIZACIÓN / EMPRESA"
+          entre siempre en una sola línea. */}
+      <span className="font-hand whitespace-nowrap text-center text-[min(41px,calc(3.4vw-8px))] leading-[1.1] text-white max-lg:text-[min(34px,8.6vw)] max-lg:leading-none">
         {label}
       </span>
     </Link>

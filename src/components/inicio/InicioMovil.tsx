@@ -4,7 +4,7 @@ import Revelar from "../Revelar";
 import Lienzo from "../Lienzo";
 import Carrusel from "../movil/Carrusel";
 import { papeles } from "./Pilares";
-import { FOTOS, Tarjeta } from "./Protagonistas";
+import { FOTOS, Tarjeta } from "./ProtagonistasDatos";
 import { FORM_MAS_90_URL } from "@/lib/site";
 
 const NUMEROS = [
@@ -18,7 +18,6 @@ const PAPELES = papeles();
 // Inicio para celular (< 1024 px): una sola columna, mismas texturas y textos.
 export default function InicioMovil() {
   const track = [...NUMEROS, ...NUMEROS, ...NUMEROS, ...NUMEROS];
-  const fotos = [...FOTOS, ...FOTOS];
   return (
     <div className="relative overflow-x-clip bg-crema text-azul-footer">
       {/* Hero */}
@@ -37,7 +36,7 @@ export default function InicioMovil() {
           aria-hidden
           className="absolute inset-0 bg-gradient-to-b from-transparent from-[53%] to-[rgba(0,0,0,0.5)] to-[92%]"
         />
-        <div className="absolute inset-x-0 top-[44%] flex -translate-y-1/2 flex-col items-center gap-4 px-5">
+        <div className="absolute inset-x-0 top-[45%] flex -translate-y-1/2 flex-col items-center gap-4 px-5">
           <Recorte
             src="/img/inicio/hero-logo.webp"
             alt="Asociación Civil Seguimos Contando"
@@ -50,19 +49,20 @@ export default function InicioMovil() {
           <h1 className="font-expanded text-center text-[19px] font-medium leading-[1.3] text-crema">
             Conectamos generaciones para construir una sociedad para todas las edades.
           </h1>
+          {/* 60px debajo del texto (60 - 16 del gap) */}
+          <a
+            href="#quienes-somos"
+            aria-label="Ir a ¿Quiénes somos?"
+            className="relative mt-[44px] block h-[56px] w-[28px]"
+          >
+            <img src="/img/inicio/hero-flecha.svg" alt="" className="rebote absolute inset-0 block size-full max-w-none" />
+          </a>
         </div>
-        <a
-          href="#quienes-somos"
-          aria-label="Ir a ¿Quiénes somos?"
-          className="absolute bottom-[96px] left-1/2 block h-[56px] w-[28px] -translate-x-1/2"
-        >
-          <img src="/img/inicio/hero-flecha.svg" alt="" className="rebote absolute inset-0 block size-full max-w-none" />
-        </a>
       </section>
 
       {/* Papel que sube sobre el hero */}
       <div
-        className="relative -mt-[62px] bg-[length:100%_auto] pb-16"
+        className="relative pb-[calc(100px+8.9vw)] -mt-[62px] bg-[length:100%_auto]"
         style={{ backgroundImage: "url(/img/movil/papel-textura-continua.webp)" }}
       >
         <img
@@ -72,19 +72,19 @@ export default function InicioMovil() {
         />
 
         {/* Números */}
-        <div className="overflow-hidden pt-8" aria-label="Nuestro impacto en números">
+        <div className="overflow-hidden pt-[40px]" aria-label="Nuestro impacto en números">
           <div className="marquee flex w-max gap-[56px] pr-[56px] text-center" style={{ ["--dur" as string]: "30s" }}>
             {track.map((n, i) => (
               <div key={i} className="flex shrink-0 flex-col justify-center">
-                <p className="font-expanded text-[56px] font-semibold leading-[0.8] tracking-[-1.1px]">{n.valor}</p>
-                <p className="font-expanded text-[22px] font-medium leading-[1.4]">{n.etiqueta}</p>
+                <p className="font-expanded text-[50px] font-semibold leading-[0.8] tracking-[-1px]">{n.valor}</p>
+                <p className="font-expanded text-[19.5px] font-medium leading-[1.4]">{n.etiqueta}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Papel roto bajo los números */}
-        <div className="relative mt-8 aspect-[1512/123] w-full drop-shadow-[0px_10px_16px_rgba(0,0,0,0.1)]">
+        <div className="relative mt-[30px] aspect-[1512/123] w-full drop-shadow-[0px_10px_16px_rgba(0,0,0,0.1)]">
           <Recorte
             src="/img/inicio/papel-roto.webp"
             className="absolute inset-0"
@@ -94,20 +94,21 @@ export default function InicioMovil() {
 
         {/* ¿Quiénes somos? */}
         <div id="quienes-somos" className="scroll-mt-20" />
-        <Revelar className="mt-10 flex justify-center px-4">
+        <Revelar className="mt-[60px] flex justify-center px-4">
           <div className="relative rotate-2 drop-shadow-[8px_8px_24px_rgba(0,0,0,0.3)]">
             <Recorte
               src="/img/inicio/quienes-papel.webp"
               className="h-[104px] w-[330px]"
               ajuste={{ alto: 140, ancho: 112, arriba: -14, izquierda: -6 }}
             />
-            <h2 className="font-expanded absolute inset-0 flex items-center justify-center whitespace-nowrap text-[24px] font-medium uppercase">
+            {/* top 24px: centra el texto en el papel (la cinta de arriba no cuenta) */}
+            <h2 className="font-expanded absolute inset-x-0 bottom-0 top-[24px] flex items-center justify-center whitespace-nowrap text-[24px] font-medium uppercase">
               ¿Quiénes somos?
             </h2>
           </div>
         </Revelar>
 
-        <Revelar className="mt-9 px-6">
+        <Revelar className="mt-[30px] px-6">
           <p className="font-expanded text-center text-[16px] font-medium leading-[1.4]">
             Somos una asociación civil dedicada a promover la inclusión, la participación y el reconocimiento de las personas mayores a través de proyectos culturales, educativos y comunitarios.{" "}
             <strong className="font-extrabold">Trabajamos para preservar la memoria viva</strong>
@@ -118,7 +119,7 @@ export default function InicioMovil() {
         </Revelar>
 
         {/* Misión / Visión / Propósito */}
-        <Carrusel className="mt-12" ancho="min(88%, 400px)" espacio={14} intervalo={5000} aire={72}>
+        <Carrusel className="mt-[60px]" ancho="min(88%, 400px)" espacio={14} intervalo={5000} aire={72}>
           {[0, 1, 2].map((i) => (
             <div key={i} className="py-3">
               <Lienzo ancho={419} alto={559} recortar={false}>
@@ -129,20 +130,21 @@ export default function InicioMovil() {
         </Carrusel>
 
         {/* Protagonistas */}
-        <h2 className="mt-16 text-center uppercase leading-none">
+        <h2 className="mt-[60px] text-center uppercase leading-none">
           <span className="font-expanded block text-[22px]">Nuestros</span>
           <span className="font-hand block text-[48px]">protagonistas</span>
         </h2>
-        <div className="-mb-16 -mt-12 overflow-hidden py-16">
-          <div className="marquee flex w-max gap-4 pr-4" style={{ ["--dur" as string]: "50s" }}>
-            {fotos.map((f, i) => (
-              <Tarjeta key={i} {...f} className="h-[240px] w-[192px]" />
-            ))}
-          </div>
-        </div>
+        {/* De a una, con puntos abajo (igual que Misión / Visión / Propósito) */}
+        <Carrusel className="mt-[20px]" ancho="min(74%, 320px)" espacio={14} intervalo={5000}>
+          {FOTOS.map((f, i) => (
+            <div key={i} className="py-2">
+              <Tarjeta {...f} className="aspect-[416/520] w-full" />
+            </div>
+          ))}
+        </Carrusel>
 
         {/* ¿Tenés +90 años? */}
-        <div className="mt-14 flex flex-col items-center gap-5 px-4">
+        <div className="mt-[60px] flex flex-col items-center gap-[20px] px-4">
           <div className="flex items-start gap-6">
             {[0, 1, 2].map((i) => (
               <div key={i} className="relative h-[40px] w-[14px]">
@@ -160,7 +162,7 @@ export default function InicioMovil() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="¿Tenés +90 años? Completá el formulario"
-            className="relative block w-full rounded-[28px] drop-shadow-[6px_6px_14px_rgba(0,0,0,0.5)]"
+            className="relative mt-[26px] block w-full rounded-[28px] drop-shadow-[6px_6px_14px_rgba(0,0,0,0.5)]"
           >
             <div className="relative h-[170px] w-full overflow-hidden rounded-[26px]">
               <img

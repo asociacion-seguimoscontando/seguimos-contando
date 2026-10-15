@@ -45,30 +45,30 @@ function Proyecto({ href, src, nombre, etiqueta }: { href: string; src: string; 
 export default function ProyectosMovil() {
   return (
     <div
-      className={`relative overflow-x-clip bg-[#fdd163] bg-[length:100%_auto] pb-16 pt-[130px] ${NARANJA}`}
+      className={`relative overflow-x-clip bg-[#fdd163] bg-[length:100%_auto] pb-[calc(100px+8.9vw)] pt-[130px] text-center ${NARANJA}`}
       style={{ backgroundImage: "url(/img/movil/amarillo-textura-continua.webp)" }}
     >
       {/* Podcast */}
-      <Revelar className="px-6">
-        <h1 className="font-expanded text-[40px] font-medium leading-[1.05]">Nuestro proyecto principal</h1>
+      <Revelar className="px-4">
+        {/* "Nuestro proyecto" en una línea (36px; en celulares muy angostos se achica para no cortarse) */}
+        <h1 className="font-expanded font-medium leading-[1.1]">
+          <span className="block whitespace-nowrap text-[min(36px,calc((100vw-32px)/10.2))]">Nuestro proyecto</span>
+          <span className="block text-[min(36px,calc((100vw-32px)/10.2))]">principal</span>
+        </h1>
         <p className="font-hand mt-1 text-[78px] leading-[0.9]">Podcast</p>
       </Revelar>
-      <div className="mt-6 px-6">
-        <Recorte
-          src="/img/proyectos/logo-noventa.png"
-          alt="Noventa y Contando"
-          className="aspect-[624/66] w-full"
-          ajuste={{ alto: 218.87, ancho: 110.01, arriba: -60.38, izquierda: -4.96 }}
-        />
+      {/* Logo entero (antes el recorte le comía la última letra) */}
+      <div className="mt-[20px] px-4">
+        <img src="/img/proyectos/logo-noventa.png" alt="Noventa y Contando" className="-my-[6%] block h-auto w-full" />
       </div>
-      <Revelar className="mt-5 px-6">
+      <Revelar className="mt-[20px] px-6">
         <p className="font-expanded text-[16px] font-medium leading-[1.6]">
           <span className="font-bold italic">“La generación que lo vivió todo, ahora te lo cuenta”,</span>{" "}
           es un proyecto y podcast intergeneracional de Argentina, protagonizado por personas mayores, especialmente de más de 90 años, que comparten sus historias, experiencias y aprendizajes.
         </p>
       </Revelar>
 
-      <div className="mt-10 flex flex-col gap-6 px-5">
+      <div className="mt-[20px] flex flex-col gap-6 px-5">
         {PLATAFORMAS.map((p, i) => (
           <Revelar key={p.nombre} retraso={i * 0.1}>
             <a
@@ -92,11 +92,11 @@ export default function ProyectosMovil() {
       </div>
 
       {/* Newsletter */}
-      <Revelar className="mt-16 px-6">
-        <p className="font-expanded text-[40px] font-medium leading-[1.05]">Suscribite a nuestro</p>
+      <Revelar className="mt-[60px] px-6">
+        <p className="font-expanded text-[min(36px,calc((100vw-32px)/10.2))] font-medium leading-[1.1]">Suscribite a nuestro</p>
         <p className="font-hand text-[50px] leading-[1]">Newsletter semanal</p>
       </Revelar>
-      <Revelar className="mt-6 px-5">
+      <Revelar className="mt-[20px] px-5">
         <a
           href={NEWSLETTER_URL}
           target="_blank"
@@ -117,11 +117,11 @@ export default function ProyectosMovil() {
       </div>
 
       {/* Redes */}
-      <h2 className="font-expanded mt-16 px-4 text-center text-[32px] font-medium leading-[1.1]">
+      <h2 className="font-expanded mt-[60px] px-4 text-center text-[32px] font-medium leading-[1.1]">
         Podés encontrarnos
         <span className="font-hand block text-[44px] font-normal leading-none">En nuestras redes</span>
       </h2>
-      <div className="mt-7 flex flex-col gap-4 px-5">
+      <div className="mt-[20px] flex flex-col gap-4 px-5">
         <Revelar>
           <Red href="https://www.instagram.com/noventaycontando/" src="/img/proyectos/instagram.webp" nombre="Instagram" className="h-[150px]" posicion="0% 50%" />
         </Revelar>
@@ -134,7 +134,7 @@ export default function ProyectosMovil() {
       </div>
 
       {/* Más proyectos */}
-      <div className="mt-16 flex flex-col items-center gap-3 px-6">
+      <div className="mt-[60px] flex flex-col items-center gap-3 px-6">
         <p className="font-expanded text-center text-[32px] font-medium leading-[1.1]">Más proyectos donde</p>
         <Recorte
           src="/img/proyectos/logo-seguimos.png"
@@ -143,7 +143,7 @@ export default function ProyectosMovil() {
           ajuste={{ alto: 260.67, ancho: 116.94, arriba: -79.78, izquierda: -8.47 }}
         />
       </div>
-      <div className="mt-8 flex flex-col gap-8 px-6">
+      <div className="mt-[20px] flex flex-col gap-8 px-6">
         <Revelar>
           <Proyecto href={LEGISLATURA_URL} src="/img/proyectos/legislatura.webp" nombre="Mención en la Legislatura porteña (video)" etiqueta="VIDEO" />
         </Revelar>

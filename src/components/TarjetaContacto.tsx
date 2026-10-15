@@ -38,7 +38,7 @@ export default function TarjetaContacto({
         >
           {etiqueta}
         </p>
-        <p className="font-expanded text-[22px] font-medium italic max-sm:text-[19px]">{accion}</p>
+        <p className="font-expanded text-[22px] font-medium italic max-sm:text-[min(19px,5.3vw)]">{accion}</p>
       </div>
     </a>
   );

@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Cifra from "../Cifra";
 import Recorte from "../Recorte";
-import Revelar from "../Revelar";
+import Aparecer from "../Aparecer";
 import PapelMovil from "../movil/Papel";
 import Carrusel from "../movil/Carrusel";
 import { PERFILES } from "./Acompanamos";
@@ -32,7 +32,7 @@ function DatoMovil({
   desde?: "abajo" | "izquierda" | "derecha";
 }) {
   return (
-    <Revelar className="flex h-full" desde={desde}>
+    <Aparecer className="flex h-full" desde={desde}>
       <div className="relative flex w-full flex-col gap-2 overflow-clip rounded-[20px] bg-crema px-4 py-4 text-azul-footer">
         <p className={`font-expanded font-bold leading-none ${grande ? "text-[56px]" : "text-[40px]"}`}>
           <Cifra texto={valor} />
@@ -42,7 +42,7 @@ function DatoMovil({
         {children}
         <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_16px_0px_rgba(0,0,0,0.2)]" />
       </div>
-    </Revelar>
+    </Aparecer>
   );
 }
 
@@ -71,10 +71,11 @@ export default function ImpactoMovil() {
         </div>
       </section>
 
-      <PapelMovil className="pb-16 pt-4" sube={50}>
+      <PapelMovil className="pb-[calc(100px+8.9vw)] pt-[50px]" sube={50}>
         <Titulo a="Nuestro impacto" b="en números" />
 
-        <div className="mt-6 flex flex-col gap-3 px-4">
+        {/* Una tarjeta debajo de la otra, a todo el ancho */}
+        <div className="mt-[20px] flex flex-col gap-[14px] px-4">
           <DatoMovil grande desde="izquierda" valor="21,1K" etiqueta="Suscriptores en Youtube" nota="Podcast y contenidos audiovisuales">
             <img
               src="/img/impacto/youtube.webp"
@@ -82,18 +83,16 @@ export default function ImpactoMovil() {
               className="mt-3 aspect-[898/567] w-full rounded-[16px] object-cover shadow-[-6px_-6px_30px_0px_rgba(0,0,0,0.2)]"
             />
           </DatoMovil>
-          <div className="grid grid-cols-2 gap-3">
-            {DATOS.map((d) => (
-              <DatoMovil key={d.etiqueta} {...d} />
-            ))}
-          </div>
+          {DATOS.map((d) => (
+            <DatoMovil key={d.etiqueta} {...d} grande />
+          ))}
           <DatoMovil grande valor="+1M" etiqueta="Visualizaciones mensuales en Instagram" nota="Podcast y contenidos audiovisuales" />
         </div>
 
-        <div className="mt-16">
+        <div className="mt-[60px]">
           <Titulo a="a quiénes" b="acompañamos" />
         </div>
-        <Carrusel className="mt-6" ancho="min(80%, 360px)" espacio={14} intervalo={4500}>
+        <Carrusel className="mt-[20px]" ancho="min(80%, 360px)" espacio={14} intervalo={4500}>
           {PERFILES.map((p) => (
             <div key={p.titulo} className="py-3">
               <div className="relative flex h-[400px] flex-col justify-end overflow-clip rounded-[22px] p-4 shadow-[6px_6px_22px_rgba(0,0,0,0.25)]">
@@ -108,11 +107,11 @@ export default function ImpactoMovil() {
           ))}
         </Carrusel>
 
-        <div className="mt-14">
+        <div className="mt-[60px]">
           <Titulo a="Mensajes de la" b="comunidad" />
         </div>
-        <div className="-my-8 mt-0 overflow-hidden py-10">
-          <div className="marquee flex w-max gap-4 pr-4" style={{ ["--dur" as string]: "45s" }}>
+        <div className="-mb-10 mt-[-20px] overflow-hidden py-10">
+          <div className="marquee flex w-max gap-4 pr-4" style={{ ["--dur" as string]: "34s" }}>
             {[...CAPTURAS, ...CAPTURAS].map((c, i) => (
               <div key={i} className="h-[300px] w-[240px] shrink-0 rounded-[18px] shadow-[6px_6px_30px_0px_rgba(0,0,0,0.2)]">
                 <Recorte

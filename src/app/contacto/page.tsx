@@ -84,7 +84,7 @@ export default function Contacto() {
             <Recorte
               src="/img/polaroid.webp"
               alt="Dos personas mirando juntas un celular"
-              className="mt-[-23px] aspect-[598/513] w-full max-md:mb-[14vw]"
+              className="mt-[-23px] aspect-[598/513] w-full max-md:mb-[calc(100px+8.9vw)]"
               ajuste={{ alto: 144.51, ancho: 100.93, arriba: -23.75, izquierda: -0.37 }}
               modo="figma"
             />
