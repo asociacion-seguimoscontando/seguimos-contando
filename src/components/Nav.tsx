@@ -16,8 +16,8 @@ export default function Nav({ tema = "crema" }: { tema?: "crema" | "naranja" }) 
     pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    // En compu queda fijo arriba al hacer scroll; en celular se va con la página.
-    <header className="absolute inset-x-0 top-[25px] z-40 px-4 md:fixed">
+    // Fijo arriba al hacer scroll (compu y celular).
+    <header className="fixed inset-x-0 top-[25px] z-40 px-4">
       <nav
         aria-label="Principal"
         className={`mx-auto flex w-full max-w-[1312px] items-center justify-between rounded-[100px] border-[0.5px] py-[12.5px] pl-[44.5px] pr-[18.5px] ${
@@ -123,20 +123,28 @@ export default function Nav({ tema = "crema" }: { tema?: "crema" | "naranja" }) 
               : "border-white/50 bg-azul/90"
           }`}
         >
-          {[...NAV_LINKS, { href: RUTAS.colaborar, label: "Quiero colaborar" }].map(
-            (l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setAbierto(false)}
-                className={`font-expanded rounded-[100px] px-4 py-3 text-[15px] ${
-                  naranja ? "text-[#e77f22]" : "text-crema"
-                } ${esActivo(l.href) ? "bg-white/10 font-bold" : "font-medium"}`}
-              >
-                {l.label}
-              </Link>
-            ),
-          )}
+          {NAV_LINKS.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              onClick={() => setAbierto(false)}
+              className={`font-expanded rounded-[100px] px-4 py-3 text-[15px] ${
+                naranja ? "text-[#e77f22]" : "text-crema"
+              } ${esActivo(l.href) ? "bg-white/10 font-bold" : "font-medium"}`}
+            >
+              {l.label}
+            </Link>
+          ))}
+          {/* Remarcado como el botón de compu */}
+          <Link
+            href={RUTAS.colaborar}
+            onClick={() => setAbierto(false)}
+            className={`font-expanded mt-2 rounded-[100px] px-4 py-3 text-center text-[15px] font-semibold tracking-[-0.15px] shadow-[0px_6px_20px_rgba(0,0,0,0.2)] active:scale-[0.98] ${
+              naranja ? "bg-[#e77f22] text-white" : "bg-crema text-azul"
+            }`}
+          >
+            Quiero colaborar
+          </Link>
         </div>
       )}
     </header>

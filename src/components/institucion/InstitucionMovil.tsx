@@ -12,7 +12,7 @@ export default function InstitucionMovil() {
   return (
     <div className="relative overflow-x-clip bg-crema text-azul-footer">
       {/* Hero */}
-      <section className="relative flex w-full flex-col overflow-clip bg-azul pb-[85px] pt-[130px]">
+      <section className="relative flex w-full flex-col overflow-clip bg-azul pb-[115px] pt-[130px]">
         <img src="/img/institucion/hero-fondo.webp" alt="" className="absolute inset-0 size-full max-w-none object-cover" />
         <div className="relative flex flex-col items-center px-6 text-center text-crema">
           <h1 className="font-expanded text-[29px] font-semibold leading-[1.22] tracking-[-0.3px]">
@@ -109,15 +109,16 @@ export default function InstitucionMovil() {
               <article key={p.num} className="relative overflow-clip rounded-[20px] bg-crema p-6 shadow-[10px_10px_40px_rgba(0,0,0,0.15)]">
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute -right-8 top-5 h-[78px] w-[118px] rounded-[32px] bg-[#e5d4bf] shadow-[inset_0px_0px_14px_0px_rgba(0,0,0,0.15)]"
+                  className="pointer-events-none absolute -right-8 top-6 h-[78px] w-[118px] rounded-[32px] bg-[#e5d4bf] shadow-[inset_0px_0px_14px_0px_rgba(0,0,0,0.15)]"
                 />
                 <span
                   aria-hidden
-                  className="font-expanded absolute right-5 top-5 flex h-[78px] items-center text-[38px] font-extrabold leading-none tracking-[-2px]"
+                  className="font-expanded absolute right-5 top-6 flex h-[78px] items-center text-[38px] font-extrabold leading-none tracking-[-2px]"
                 >
                   {String(p.num).padStart(2, "0")}
                 </span>
-                <h3 className="font-hand min-h-[78px] pr-[92px] text-[31px] leading-none">{p.titulo}</h3>
+                {/* Título centrado en vertical con el número (misma altura que el óvalo) */}
+                <h3 className="font-hand flex min-h-[78px] items-center pr-[92px] text-[31px] leading-none">{p.titulo}</h3>
                 <p className="font-expanded mt-3 text-[14.5px] font-medium leading-[1.45]">{p.texto}</p>
               </article>
           ))}

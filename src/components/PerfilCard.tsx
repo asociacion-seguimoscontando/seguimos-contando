@@ -32,7 +32,7 @@ export default function PerfilCard({ slug, label, destino, retraso }: Props) {
       className="fade-up flex min-w-0 flex-1 flex-col items-center justify-center gap-[6px] rounded-[22px] border border-white/50 bg-white/10 px-[25px] py-[70px] backdrop-blur-[2px] transition hover:bg-white/20 active:bg-white/20 max-lg:gap-0 max-lg:py-[26px]"
       style={{ animationDelay: `${retraso}s` }}
     >
-      <span className="font-expanded -rotate-[5deg] text-[33px] text-white max-lg:text-[24px]">
+      <span className="font-expanded text-[33px] text-white max-lg:text-[24px]">
         SOY
       </span>
       {/* 41px en compu; en pantallas más angostas se achica para que "ORGANIZACIÓN / EMPRESA"

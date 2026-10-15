@@ -108,24 +108,25 @@ function FooterMovil() {
           className="-mt-[1.2vw] bg-[#f5e6d1] bg-[length:100%_auto] px-6 pb-10 pt-[calc(1.5rem+1.2vw)]"
           style={{ backgroundImage: "url(/img/movil/papel-textura-continua.webp)" }}
         >
+          {/* Celular: todo centrado y en una sola columna (textos 2px más chicos que antes) */}
           <Recorte
             src="/img/logo-footer.webp"
             alt="Asociación Civil Seguimos Contando"
-            className="h-[52px] w-[141px] drop-shadow-[0px_4px_24px_rgba(0,0,0,0.15)]"
+            className="mx-auto h-[52px] w-[141px] drop-shadow-[0px_4px_24px_rgba(0,0,0,0.15)]"
             ajuste={{ alto: 101.38, ancho: 107.65, arriba: -0.63, izquierda: -3.68 }}
           />
-          <p className="font-expanded mt-4 max-w-[320px] text-[15px] leading-[1.35] tracking-[-0.3px]">
+          <p className="font-expanded mx-auto mt-4 max-w-[300px] text-center text-[13px] leading-[1.4] tracking-[-0.2px]">
             {FOOTER_DESCRIPCION}
           </p>
 
           {/* Una columna debajo de la otra */}
-          <div className="mt-10 flex flex-col gap-9">
+          <div className="mt-10 flex flex-col items-center gap-9 text-center">
             <MovilColumna titulo="Navegación" items={FOOTER_NAV} />
             <MovilColumna titulo="Nuestras redes" items={FOOTER_REDES} />
             <MovilColumna titulo="Comunidad" items={FOOTER_COMUNIDAD} />
           </div>
 
-          <p className="font-expanded mt-9 border-t border-azul-footer/25 pt-5 text-center text-[13px] font-medium leading-[1.4]">
+          <p className="font-expanded mt-9 border-t border-azul-footer/25 pt-5 text-center text-[11px] font-medium leading-[1.4]">
             <Credito />
           </p>
         </div>
@@ -136,9 +137,9 @@ function FooterMovil() {
 
 function MovilColumna({ titulo, items }: { titulo: string; items: Item[] }) {
   return (
-    <div className="flex flex-col gap-3">
-      <p className="font-hand text-[28px] uppercase leading-none">{titulo}</p>
-      <ul className="font-expanded flex flex-col gap-2.5 text-[15px] font-medium leading-tight">
+    <div className="flex flex-col items-center gap-3">
+      <p className="font-hand text-[26px] uppercase leading-none">{titulo}</p>
+      <ul className="font-expanded flex flex-col items-center gap-2.5 text-[13px] font-medium leading-tight">
         {items.map((i) => (
           <li key={i.label}>
             {i.externo ? (

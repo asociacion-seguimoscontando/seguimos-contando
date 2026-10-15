@@ -21,7 +21,9 @@ export default function InicioMovil() {
   return (
     <div className="relative overflow-x-clip bg-crema text-azul-footer">
       {/* Hero */}
-      <section className="relative h-[620px] w-full overflow-clip bg-azul">
+      {/* Alto automático: la flecha queda siempre a 40px del borde del papel
+          (102px = 62 que sube el papel + 40; 6.27vw = parte del borde roto por encima de su punto central). */}
+      <section className="relative w-full overflow-clip bg-azul pb-[calc(102px+6.27vw)] pt-[150px]">
         <video
           className="absolute inset-0 size-full object-cover"
           src="/video/inicio.mp4"
@@ -36,7 +38,7 @@ export default function InicioMovil() {
           aria-hidden
           className="absolute inset-0 bg-gradient-to-b from-transparent from-[53%] to-[rgba(0,0,0,0.5)] to-[92%]"
         />
-        <div className="absolute inset-x-0 top-[45%] flex -translate-y-1/2 flex-col items-center gap-4 px-5">
+        <div className="relative flex flex-col items-center gap-4 px-5">
           <Recorte
             src="/img/inicio/hero-logo.webp"
             alt="Asociación Civil Seguimos Contando"

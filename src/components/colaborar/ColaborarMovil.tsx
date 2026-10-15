@@ -141,8 +141,8 @@ export default function ColaborarMovil() {
         </p>
       </Revelar>
 
-      {/* Título + texto forman un bloque; 50px de aire hasta las formas de pago */}
-      <div role="tablist" aria-label="Forma de donar" className="mt-[50px] flex flex-col gap-[14px]">
+      {/* Título + texto forman un bloque; 25px hasta las formas de pago */}
+      <div role="tablist" aria-label="Forma de donar" className="mt-[25px] flex flex-col gap-[14px]">
         {pestana("pesos", "Donar pesos argentinos")}
         {pestana("internacional", "Donar moneda internacional")}
       </div>
