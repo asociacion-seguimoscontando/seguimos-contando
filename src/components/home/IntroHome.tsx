@@ -80,7 +80,7 @@ export default function IntroHome({ children }: { children: React.ReactNode }) {
   const botones = fase === "botones";
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-neutral-900">
+    <main className="relative min-h-svh overflow-hidden bg-neutral-900">
       <video
         ref={video}
         className={`absolute inset-0 h-full w-full object-cover transition-[filter,transform] duration-1000 ease-out ${

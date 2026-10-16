@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Revelar from "../Revelar";
+import TextoAjustado from "./TextoAjustado";
 
 // Misión / Visión / Propósito: tres papeles con cinta.
 function Papel({
@@ -48,7 +49,10 @@ function Papel({
             lineHeight: "26px",
           }}
         >
-          <p>{children}</p>
+          {/* Alto disponible: el de la caja, o hasta casi el borde inferior del papel (559 - 170 - 19). */}
+          <TextoAjustado tamano={tamano} interlineado={26} maxAlto={textoAlto ?? 370}>
+            {children}
+          </TextoAjustado>
         </div>
       </div>
     </Revelar>
