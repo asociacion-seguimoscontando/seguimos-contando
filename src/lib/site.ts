@@ -38,7 +38,7 @@ export const FOOTER_NAV = [...NAV_LINKS, { href: RUTAS.colaborar, label: "Quiero
 
 // Formulario "¿Tenés +90 años?" (Google Form actual; se puede reemplazar por uno propio).
 export const FORM_MAS_90_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfrMnRNrFJBKVg9cnLYbtDziYW4ZXTgWcIkk0eianxva4vXow/viewform";
+  "https://forms.gle/tTEeFVyQdHtscMmf6";
 
 export const FOOTER_COMUNIDAD = [
   { href: FORM_MAS_90_URL, label: "¿Tenés +90 años?", externo: true },
@@ -70,4 +70,4 @@ export const CARPETA_INSTITUCIONAL_URL = "/docs/carpeta-institucional.pdf";
 // Nuestros proyectos
 export const NEWSLETTER_URL = "http://eepurl.com/jpJ08s";
 export const LEGISLATURA_URL = "https://www.youtube.com/live/dIuiti-v4o4";
-export const FORM_HISTORIA_URL = "https://forms.gle/mX2jxWtfDy69KWYe8";
+export const FORM_HISTORIA_URL = "https://forms.gle/EJrGiH77oLSn8AkG6";

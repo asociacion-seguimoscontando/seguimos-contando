@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Recorte from "./Recorte";
 import { NAV_LINKS, RUTAS } from "@/lib/site";
 
@@ -11,6 +11,16 @@ export default function Nav({ tema = "crema" }: { tema?: "crema" | "naranja" }) 
   const naranja = tema === "naranja";
   const pathname = usePathname();
   const [abierto, setAbierto] = useState(false);
+  // En Nuestros proyectos el header arranca transparente y pasa a vidrio al scrollear.
+  const [scrolleado, setScrolleado] = useState(false);
+
+  useEffect(() => {
+    if (!naranja) return;
+    const alScrollear = () => setScrolleado(window.scrollY > 10);
+    alScrollear();
+    window.addEventListener("scroll", alScrollear, { passive: true });
+    return () => window.removeEventListener("scroll", alScrollear);
+  }, [naranja]);
 
   const esActivo = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`);
@@ -20,9 +30,9 @@ export default function Nav({ tema = "crema" }: { tema?: "crema" | "naranja" }) 
     <header className="fixed inset-x-0 top-[25px] z-40 px-4">
       <nav
         aria-label="Principal"
-        className={`mx-auto flex w-full max-w-[1312px] items-center justify-between rounded-[100px] border-[0.5px] py-[12.5px] pl-[44.5px] pr-[18.5px] ${
+        className={`mx-auto flex w-full max-w-[1312px] items-center justify-between rounded-[100px] border-[0.5px] py-[12.5px] pl-[44.5px] pr-[18.5px] transition-[background-color,backdrop-filter] duration-300 ${
           naranja
-            ? "border-[#e77f22]/50"
+            ? `border-[#e77f22]/50 ${scrolleado ? "bg-[#fdd163]/40 backdrop-blur-[10px]" : "bg-transparent backdrop-blur-0"}`
             : "border-white/50 bg-azul/30 backdrop-blur-[10px]"
         }`}
       >
