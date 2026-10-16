@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Reenie_Beanie, Barlow } from "next/font/google";
 import "./globals.css";
+import { DATOS_ESTRUCTURADOS, NOMBRE, SITE_URL } from "@/lib/seo";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -25,7 +26,9 @@ const DESCRIPCION =
 // La imagen de vista previa (WhatsApp, redes) y los íconos salen de los archivos
 // opengraph-image.jpg, twitter-image.jpg, icon.png, apple-icon.png y favicon.ico de esta carpeta.
 export const metadata: Metadata = {
-  title: "Seguimos Contando",
+  metadataBase: new URL(SITE_URL),
+  title: NOMBRE,
+  applicationName: NOMBRE,
   description: DESCRIPCION,
   openGraph: {
     type: "website",
@@ -51,6 +54,10 @@ export default function RootLayout({
       <body
         className={`${archivo.variable} ${reenie.variable} ${barlow.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(DATOS_ESTRUCTURADOS) }}
+        />
         {children}
       </body>
     </html>

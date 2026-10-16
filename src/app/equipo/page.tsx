@@ -6,8 +6,16 @@ import Equipo from "@/components/equipo/Equipo";
 import MuyPronto from "@/components/equipo/MuyPronto";
 import EquipoMovil from "@/components/equipo/EquipoMovil";
 import { EQUIPO_PUBLICADO } from "@/lib/site";
+import { metaPagina } from "@/lib/seo";
+import { RUTAS } from "@/lib/site";
 
-export const metadata = { title: "Nuestro equipo | Seguimos Contando" };
+export const metadata = metaPagina({
+  titulo: "Nuestro equipo | Seguimos Contando",
+  descripcion:
+    "Conocé a las personas que hacen posible Seguimos Contando, la asociación civil que conecta generaciones.",
+  ruta: RUTAS.equipo,
+  indexar: EQUIPO_PUBLICADO,
+});
 
 export default function PaginaEquipo() {
   // Medidas del Figma: "Con equipo" 1240 de alto (footer en 1107) / "Muy pronto" 997 (footer en 864).

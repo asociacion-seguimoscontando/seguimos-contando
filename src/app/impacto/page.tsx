@@ -6,8 +6,15 @@ import Dato from "@/components/impacto/Dato";
 import Acompanamos from "@/components/impacto/Acompanamos";
 import Comentarios from "@/components/impacto/Comentarios";
 import ImpactoMovil from "@/components/impacto/ImpactoMovil";
+import { metaPagina } from "@/lib/seo";
+import { RUTAS } from "@/lib/site";
 
-export const metadata = { title: "Impacto | Seguimos Contando" };
+export const metadata = metaPagina({
+  titulo: "Impacto | Seguimos Contando",
+  descripcion:
+    "Transformamos historias de personas mayores en contenidos audiovisuales, encuentros intergeneracionales y archivo de memoria. Conocé nuestro alcance.",
+  ruta: RUTAS.impacto,
+});
 
 export default function Impacto() {
   return (

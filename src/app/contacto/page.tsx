@@ -5,8 +5,15 @@ import ContactoForm from "@/components/ContactoForm";
 import TarjetaContacto from "@/components/TarjetaContacto";
 import Recorte from "@/components/Recorte";
 import { EMAIL, LINKEDIN_URL, WHATSAPP_URL } from "@/lib/site";
+import { metaPagina } from "@/lib/seo";
+import { RUTAS } from "@/lib/site";
 
-export const metadata = { title: "Contacto | Seguimos Contando" };
+export const metadata = metaPagina({
+  titulo: "Contacto | Seguimos Contando",
+  descripcion:
+    "Escribinos si sos persona mayor, si te interesa lo intergeneracional o si representás a una empresa u organización. Sumate a Seguimos Contando.",
+  ruta: RUTAS.contacto,
+});
 
 export default function Contacto() {
   return (

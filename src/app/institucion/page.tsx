@@ -9,8 +9,15 @@ import Valores from "@/components/institucion/Valores";
 import Principios from "@/components/institucion/Principios";
 import InstitucionMovil from "@/components/institucion/InstitucionMovil";
 import { CARPETA_INSTITUCIONAL_URL } from "@/lib/site";
+import { metaPagina } from "@/lib/seo";
+import { RUTAS } from "@/lib/site";
 
-export const metadata = { title: "Institución | Seguimos Contando" };
+export const metadata = metaPagina({
+  titulo: "Institución | Seguimos Contando",
+  descripcion:
+    "Somos una asociación civil que promueve la inclusión, la participación y el reconocimiento de las personas mayores con proyectos culturales, educativos y comunitarios.",
+  ruta: RUTAS.institucion,
+});
 
 export default function Institucion() {
   return (

@@ -1,6 +1,14 @@
 import PerfilCard from "@/components/PerfilCard";
 import IntroHome from "@/components/home/IntroHome";
 import { RUTAS } from "@/lib/site";
+import { metaPagina } from "@/lib/seo";
+
+export const metadata = metaPagina({
+  titulo: "Seguimos Contando | Conectamos generaciones",
+  descripcion:
+    "Asociación civil que conecta generaciones y promueve la inclusión y el reconocimiento de las personas mayores. Conocé nuestros proyectos y sumate.",
+  ruta: "/",
+});
 
 const perfiles = [
   { slug: "intergeneracional", label: "INTERGENERACIONAL" },

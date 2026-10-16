@@ -9,8 +9,15 @@ import Redes from "@/components/proyectos/Redes";
 import MasProyectos from "@/components/proyectos/MasProyectos";
 import ProyectosMovil from "@/components/proyectos/ProyectosMovil";
 import { NEWSLETTER_URL } from "@/lib/site";
+import { metaPagina } from "@/lib/seo";
+import { RUTAS } from "@/lib/site";
 
-export const metadata = { title: "Nuestros proyectos | Seguimos Contando" };
+export const metadata = metaPagina({
+  titulo: "Nuestros proyectos | Seguimos Contando",
+  descripcion:
+    "Noventa y Contando, nuestro podcast principal, más redes, newsletter e iniciativas que dan voz a las personas mayores. Sumate y contanos tu historia.",
+  ruta: RUTAS.proyectos,
+});
 
 export default function Proyectos() {
   return (

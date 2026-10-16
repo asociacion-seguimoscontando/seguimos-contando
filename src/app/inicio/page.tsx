@@ -9,8 +9,15 @@ import Pilares from "@/components/inicio/Pilares";
 import Protagonistas from "@/components/inicio/Protagonistas";
 import PlacaForms from "@/components/inicio/PlacaForms";
 import InicioMovil from "@/components/inicio/InicioMovil";
+import { metaPagina } from "@/lib/seo";
+import { RUTAS } from "@/lib/site";
 
-export const metadata = { title: "Inicio | Seguimos Contando" };
+export const metadata = metaPagina({
+  titulo: "Inicio | Seguimos Contando",
+  descripcion:
+    "Conectamos generaciones para construir una sociedad para todas las edades. Historias de personas mayores, podcast, comunidad y formas de participar.",
+  ruta: RUTAS.inicio,
+});
 
 // Inicio: medidas del Figma (1512 px de ancho), escaladas al ancho de pantalla.
 export default function Inicio() {

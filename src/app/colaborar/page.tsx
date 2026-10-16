@@ -4,8 +4,15 @@ import Footer from "@/components/Footer";
 import Lienzo from "@/components/Lienzo";
 import Colaborar from "@/components/colaborar/Colaborar";
 import ColaborarMovil from "@/components/colaborar/ColaborarMovil";
+import { metaPagina } from "@/lib/seo";
+import { RUTAS } from "@/lib/site";
 
-export const metadata = { title: "Quiero colaborar | Seguimos Contando" };
+export const metadata = metaPagina({
+  titulo: "Quiero colaborar | Seguimos Contando",
+  descripcion:
+    "Doná a Seguimos Contando por Mercado Pago con QR, alias o CVU. Tu aporte sostiene proyectos que conectan generaciones y dan voz a las personas mayores.",
+  ruta: RUTAS.colaborar,
+});
 
 export default function PaginaColaborar() {
   return (
