@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EMAIL, EQUIPO_PUBLICADO, FOOTER_REDES, RUTAS } from "./site";
+import { EMAIL, FOOTER_REDES } from "./site";
 
 // Dirección oficial del sitio (sin www). Si cambia el dominio, se cambia solo acá.
 export const SITE_URL = "https://seguimoscontando.org";
@@ -46,17 +46,9 @@ export function metaPagina({
   };
 }
 
-// Páginas que van al sitemap. Nuestro equipo entra solo cuando esté publicado.
-export const PAGINAS_INDEXABLES = [
-  "/",
-  RUTAS.inicio,
-  RUTAS.institucion,
-  RUTAS.impacto,
-  RUTAS.proyectos,
-  ...(EQUIPO_PUBLICADO ? [RUTAS.equipo] : []),
-  RUTAS.contacto,
-  RUTAS.colaborar,
-];
+// Páginas que van al sitemap. Solo la raíz: es la puerta de entrada (video + "SOY…") y
+// las páginas internas redirigen a ella si todavía no se eligió un perfil (ver src/proxy.ts).
+export const PAGINAS_INDEXABLES = ["/"];
 
 // Ficha de la organización para Google (datos estructurados JSON-LD).
 export const DATOS_ESTRUCTURADOS = {
@@ -66,7 +58,7 @@ export const DATOS_ESTRUCTURADOS = {
       "@type": "NGO",
       "@id": `${SITE_URL}/#organizacion`,
       name: NOMBRE,
-      alternateName: "Asociación Civil Seguimos Contando",
+      alternateName: ["Asociación Civil Seguimos Contando", "Seguimos Contando ONG"],
       url: SITE_URL,
       logo: `${SITE_URL}/icon.png`,
       description:
