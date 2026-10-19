@@ -2,26 +2,21 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const CLAVE = "sc-intro-vista";
+// La intro se ve una vez por cada carga de la página (entrar desde Google, escribir la URL,
+// recargar). Este valor vive en memoria: se reinicia en cada carga completa, pero se mantiene
+// si se vuelve a la home navegando dentro del sitio (ej. con el botón "atrás").
+let introVista = false;
 
 type Fase = "cargando" | "intro" | "botones";
 
 function leerVista() {
-  try {
-    return sessionStorage.getItem(CLAVE) === "1";
-  } catch {
-    return false;
-  }
+  return introVista;
 }
 function marcarVista() {
-  try {
-    sessionStorage.setItem(CLAVE, "1");
-  } catch {
-    /* sin almacenamiento: la intro se vuelve a ver, nada más */
-  }
+  introVista = true;
 }
 
-// Home: la primera vez de cada visita se ve el video completo (con sonido si el navegador
+// Home: en cada carga de la página se ve el video completo (con sonido si el navegador
 // lo permite; si no, con un botón visible para activarlo). Al terminar, vuelve a empezar
 // sin sonido, desenfocado y con el overlay al 40%, y aparecen los botones "SOY…".
 export default function IntroHome({ children }: { children: React.ReactNode }) {
@@ -36,7 +31,7 @@ export default function IntroHome({ children }: { children: React.ReactNode }) {
     decidido.current = true;
     if (leerVista()) {
       v.loop = true;
-      // La fase depende de sessionStorage (solo existe en el navegador), por eso se decide acá.
+      // La fase depende de algo que solo existe en el navegador, por eso se decide acá.
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setFase("botones");
       return;
